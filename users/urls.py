@@ -12,6 +12,10 @@ urlpatterns = [
     path('logout/', views.logout_view,name='logout'),
     path('register/', views.register,name='register'),
     ##test
-    url(r'^account/$',views.accountAPIview.as_view()),
-    url(r'^account/([0-9]+)$',views.account_detail),
+    
+    #path('detailaccount/<int:pk>/',views.account_detail),
+    path('account/', views.accountAPIview.as_view()),
+    path('account/<int:id>',views.account_detail.as_view()),
+    path('account/customer/', views.customerAPIview.as_view()),
+    path('account/customer/<int:id_account>', views.customer_detail.as_view()),
 ]
