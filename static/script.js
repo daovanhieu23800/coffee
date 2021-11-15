@@ -1,20 +1,23 @@
 const  handleMenuTab1 = async ()=>{
-    const response = await fetch('https://617bd868d842cf001711c0fe.mockapi.io/item');
+    const response = await fetch('http://127.0.0.1:8000/items/');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>12)
         newJson = myJson.slice(0,12);
     const html = newJson.map((items) =>{
-        // console.log(items);
+         console.log(myJson);
     return `
     <div class="product-card">
                                 <div class="product-card--image">
-                                    <img src="/static/assets/images/coffee1.jpg" alt="">
+                                    <img src="/static/assets/images/${items.image}" alt="">
+                                    
                                 </div>
                                 <div class="product-card--info">
-                                    <span id="product-name"><b>${items.name}</b></span>
+                                    <span id="product-name">
+                                        <b>${items.name}</b></span>
+                                    
                                     <div class="product-card--footer">
-                                        <span>${items.price}d</span>
+                                        <span>${items.price}</span>
                                         <div class="product-card--button">
                                             <i class="fas fa-plus"></i>
                                         </div>
