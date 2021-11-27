@@ -1,5 +1,5 @@
 const  handleMenuTab1 = async ()=>{
-    const response = await fetch('http://127.0.0.1:8000/items/type1/');
+    const response = await fetch('http://127.0.0.1:8000/items/favourite/');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>12)
@@ -31,7 +31,7 @@ const  handleMenuTab1 = async ()=>{
 };
 
 const  handleMenuTab2 = async ()=>{
-    const response = await fetch('http://127.0.0.1:8000/items/type1/');
+    const response = await fetch('http://127.0.0.1:8000/items/coffee/');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>12)
@@ -41,7 +41,7 @@ const  handleMenuTab2 = async ()=>{
     return `
     <div class="product-card">
                                 <div class="product-card--image">
-                                    <img src="/static/assets/images/coffee2.jpg" alt="">
+                                    <img src="/static/assets/${items.image}" alt="">
                                 </div>
                                 <div class="product-card--info">
                                     <span id="product-name"><b>${items.name}</b></span>
@@ -60,7 +60,7 @@ const  handleMenuTab2 = async ()=>{
 };
 
 const  handleMenuTab3 = async ()=>{
-    const response = await fetch('https://617bd868d842cf001711c0fe.mockapi.io/item3');
+    const response = await fetch('http://127.0.0.1:8000/items/tea/');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>12)
@@ -70,7 +70,7 @@ const  handleMenuTab3 = async ()=>{
     return `
     <div class="product-card">
                                 <div class="product-card--image">
-                                    <img src="/static/assets/images/coffee3.jpg" alt="">
+                                    <img src="/static/assets/${items.image}" alt="">
                                 </div>
                                 <div class="product-card--info">
                                     <span id="product-name"><b>${items.name}</b></span>
@@ -87,7 +87,34 @@ const  handleMenuTab3 = async ()=>{
     let a = document.querySelector("#third-menu-tab");
     a.innerHTML = html;          
 };
-
+const  handleMenuTab4 = async ()=>{
+    const response = await fetch('http://127.0.0.1:8000/items/ice/');
+    const myJson = await response.json();
+    let newJson = [];
+    if(myJson.length>12)
+        newJson = myJson.slice(0,12);
+    const html = newJson.map((items) =>{
+        // console.log(items);
+    return `
+    <div class="product-card">
+                                <div class="product-card--image">
+                                    <img src="/static/assets/${items.image}" alt="">
+                                </div>
+                                <div class="product-card--info">
+                                    <span id="product-name"><b>${items.name}</b></span>
+                                    <div class="product-card--footer">
+                                        <span>${items.price}d</span>
+                                        <div class="product-card--button">
+                                            <i class="fas fa-plus"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    `;
+                }).join(" ");
+    let a = document.querySelector("#four-menu-tab");
+    a.innerHTML = html;          
+};
 const  handleNews = async ()=>{
     const response = await fetch('https://617bd868d842cf001711c0fe.mockapi.io/news');
     const myJson = await response.json();
@@ -118,6 +145,7 @@ const  handleNews = async ()=>{
 handleMenuTab1();
 handleMenuTab2();
 handleMenuTab3();
+handleMenuTab4();
 handleNews();
 
 var $li = $('#pills-tab li').click(function() {

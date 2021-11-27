@@ -7,11 +7,14 @@ class Item( models.Model):
     price = models.IntegerField()
     id = models.AutoField(primary_key=True)
     image = models.ImageField(null=True)
+    description  = models.CharField(max_length=200, default="this is the best drink")
+
     TYPE_STATUS = (
-        ('type1', '1'),
-        ('type2', '2'),
-        ('type3', '3'),
-        ('type4', '4'),
+        ('favourite', 'favourite'),
+        ('coffee', 'coffee'),
+        ('fruit tea', 'fruit tea'),
+        ('ICE BLENDED', 'ice blended'),
+        ('snack', 'snack'),
     )
-    type = models.CharField(max_length=5,choices=TYPE_STATUS,blank=True,default='type1',
+    type = models.CharField(max_length=11,choices=TYPE_STATUS,blank=True,default='favourite',
                             help_text= "Input type for item")

@@ -25,28 +25,35 @@ def items(request):
     return HttpResponse(data, content_type="application/json")
 ####item detail
 def items_detail_1(request):
-    items = Item.objects.raw('SELECT * FROM coffee_app_Item WHERE type="type1"')
+    items = Item.objects.raw('SELECT * FROM coffee_app_Item WHERE type="favourite"')
 
     serializer = ItemSerializers(items, many = True)
 
     return JsonResponse(serializer.data, safe = False)
 
 def items_detail_2(request):
-    items = Item.objects.raw('SELECT * FROM coffee_app_Item WHERE type="type2"')
+    items = Item.objects.raw('SELECT * FROM coffee_app_Item WHERE type="coffee"')
 
     serializer = ItemSerializers(items, many = True)
 
     return JsonResponse(serializer.data, safe = False)
 
 def items_detail_3(request):
-    items = Item.objects.raw('SELECT * FROM coffee_app_Item WHERE type="type3"')
+    items = Item.objects.raw('SELECT * FROM coffee_app_Item WHERE type="fruit tea"')
 
     serializer = ItemSerializers(items, many = True)
 
     return JsonResponse(serializer.data, safe = False)
 
 def items_detail_4(request):
-    items = Item.objects.raw('SELECT * FROM coffee_app_Item WHERE type="type4"')
+    items = Item.objects.raw('SELECT * FROM coffee_app_Item WHERE type="ICE BLENDED"')
+
+    serializer = ItemSerializers(items, many = True)
+
+    return JsonResponse(serializer.data, safe = False)
+
+def items_detail_5(request):
+    items = Item.objects.raw('SELECT * FROM coffee_app_Item WHERE type="snack"')
 
     serializer = ItemSerializers(items, many = True)
 
