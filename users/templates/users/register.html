@@ -16,35 +16,30 @@
 </head>
 <body>
     <div class="login-reg-panel">
-		
-							
+						
 		<div class="register-info-box">
-			<h2>Don't have an account?</h2>
-			<p>Creare an account</p>
-			<label id="label-login" for="log-login-show">
-			 <a href="{% url 'users:register' %}">register</a> </label>
+			<h2>Have an account?</h2>
+			
+			<label id="label-register" for="log-reg-show">
+                 <a href="{% url 'users:login' %}">login now</a>
 
+                
+        </label>
 
-			<input type="radio" name="active-log-panel" id="log-login-show">
-		</div>
-							
-		<div class="white-panel">
+		</div>		
+		<div class="white-panel-reg">
 			<div class="login-show">
                 
-				<h2>LOGIN</h2>
+				<h2>RESGISTATION FORM</h2>
 				
                 <!-- fix	 -->
-                <form method="post" action="{% url 'users:login' %}">
-                {%csrf_token%}
-                {{ form.as_p }}
-                    <button name="submit" value="Log in">login</button>
-				    <input type="hidden" name="next" value="{% url 'coffee_app:index' %}" />
-                </form>
+                <form method="post" action="{% url 'users:register' %}"> 
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button name="submit">register</button>
+                    <input type="hidden" name="next" value="{% url 'coffee_app:index' %}" /> </form>
                 <!-- fix -->
-
-                
-                <a href=" {% static '' %} ">Forgot password?</a>
-			</div>
+    			</div>
 			
 		</div>
 	</div>

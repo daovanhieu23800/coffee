@@ -1,5 +1,5 @@
 const  handleMenuTab1 = async ()=>{
-    const response = await fetch('http://127.0.0.1:8000/items/');
+    const response = await fetch('http://127.0.0.1:8000/items/type1/');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>12)
@@ -9,7 +9,7 @@ const  handleMenuTab1 = async ()=>{
     return `
     <div class="product-card">
                                 <div class="product-card--image">
-                                    <img src="/static/assets/images/${items.image}" alt="">
+                                    <img src="/static/assets/${items.image}" alt="....">
                                     
                                 </div>
                                 <div class="product-card--info">
@@ -31,7 +31,7 @@ const  handleMenuTab1 = async ()=>{
 };
 
 const  handleMenuTab2 = async ()=>{
-    const response = await fetch('https://617bd868d842cf001711c0fe.mockapi.io/item2');
+    const response = await fetch('http://127.0.0.1:8000/items/type1/');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>12)

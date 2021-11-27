@@ -2,6 +2,9 @@ from django.shortcuts import render
 from .models import Item
 from django.core import serializers
 from django.http import HttpResponse
+from .serializer import ItemSerializers
+from django.http.response import JsonResponse
+
 import json
 # Create your views here.
 def index(request):
@@ -20,5 +23,32 @@ def items(request):
 
     data = json.dumps(items_list)
     return HttpResponse(data, content_type="application/json")
+####item detail
+def items_detail_1(request):
+    items = Item.objects.raw('SELECT * FROM coffee_app_Item WHERE type="type1"')
 
+    serializer = ItemSerializers(items, many = True)
+
+    return JsonResponse(serializer.data, safe = False)
+
+def items_detail_2(request):
+    items = Item.objects.raw('SELECT * FROM coffee_app_Item WHERE type="type2"')
+
+    serializer = ItemSerializers(items, many = True)
+
+    return JsonResponse(serializer.data, safe = False)
+
+def items_detail_3(request):
+    items = Item.objects.raw('SELECT * FROM coffee_app_Item WHERE type="type3"')
+
+    serializer = ItemSerializers(items, many = True)
+
+    return JsonResponse(serializer.data, safe = False)
+
+def items_detail_4(request):
+    items = Item.objects.raw('SELECT * FROM coffee_app_Item WHERE type="type4"')
+
+    serializer = ItemSerializers(items, many = True)
+
+    return JsonResponse(serializer.data, safe = False)
 
