@@ -17,6 +17,70 @@
     <link  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"  rel="stylesheet"/>
 </head>
 <body>
+    <!-- ------------------------- -->
+
+    <div class="card_popup-container">
+        <div class="card_popup">
+            <div class="card_popup_cancel">
+                <span>Order information</span>
+                <button onclick="cancelCardPopup()">X</button>
+            </div>
+            <div class="card_popup-information">
+                <img src="./assets/images/coffee1.jpg" alt="">
+                <div class="card_popup-title">
+                    <b>Name</b>
+                    <div class="description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sint impedit id blanditiis consequuntur minima, quo error sed ducimus reiciendis aut commodi, dignissimos eum suscipit doloribus. Accusantium voluptatum impedit dolorem.
+                    </div>
+                </div>
+            </div>
+            <div class="card_popup-quantity">
+                <span class="price">$12</span>
+                <div class="change_quantity">
+                    <button class="decrease disabled_button" onclick="decreaseQuantity(this)" disabled>-</button>
+                    <!-- <span contenteditable="true">0</span> -->
+                    <span id="quantityofitem">1</span>
+
+                    <button class="increase" onclick="increaseQuantity(this)" >+</button>
+                </div>
+            </div>
+            <div class="card_popup-note">
+                <div data-v-381448aa="" class="card-product-note-item">
+                    <img data-v-381448aa="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAxOCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE3IDIwSDFDMC43MzQ3ODQgMjAgMC40ODA0MyAxOS44OTQ2IDAuMjkyODkzIDE5LjcwNzFDMC4xMDUzNTcgMTkuNTE5NiAwIDE5LjI2NTIgMCAxOVYxQzAgMC43MzQ3ODQgMC4xMDUzNTcgMC40ODA0MyAwLjI5Mjg5MyAwLjI5Mjg5M0MwLjQ4MDQzIDAuMTA1MzU3IDAuNzM0Nzg0IDAgMSAwSDE3QzE3LjI2NTIgMCAxNy41MTk2IDAuMTA1MzU3IDE3LjcwNzEgMC4yOTI4OTNDMTcuODk0NiAwLjQ4MDQzIDE4IDAuNzM0Nzg0IDE4IDFWMTlDMTggMTkuMjY1MiAxNy44OTQ2IDE5LjUxOTYgMTcuNzA3MSAxOS43MDcxQzE3LjUxOTYgMTkuODk0NiAxNy4yNjUyIDIwIDE3IDIwWk01IDVWN0gxM1Y1SDVaTTUgOVYxMUgxM1Y5SDVaTTUgMTNWMTVIMTBWMTNINVoiIGZpbGw9IiNFNEU0RTQiLz4KPC9zdmc+Cg==" 
+                    alt="" class="card-product-note-icon"> 
+                    <input data-v-381448aa="" type="text" placeholder="Ghi chú thêm cho món này" class="card-product-text"></div>
+            </div>
+            <div class="title_choices">
+                Chon size
+            </div>
+            <div class="multichoices">
+                <div class="multichoice">
+                    <input type="radio" id="s" name="msize" onclick="handlesize(0,12)"   value="s" checked>
+                    <label for="s">S (+0)</label>
+                </div>
+                <div class="multichoice">
+                    <input type="radio" id="m" name="msize" onclick="handlesize(1,12)" value="m">
+                    <label for="m">M (+5000)</label>
+                </div>
+                <div class="multichoice">
+                    <input type="radio" id="l" name="msize" onclick="handlesize(2,12)" value="l">
+                    <label for="l">L (+10000)</label>
+                </div>
+            </div>
+            <div class="addtocard">
+                <span id="totalPrice">0d</span>
+                <span> - add to cart</span>
+            </div>
+        </div>
+
+        <!-- <div class="addtocard">
+            <span id="totalPrice">0d</span>
+            <span> - basb</span>
+        </div> -->
+    </div> 
+    <!-- ------------------------- -->
+ 
+
     <div class="app">
         <header class="header">
             <div class="container">

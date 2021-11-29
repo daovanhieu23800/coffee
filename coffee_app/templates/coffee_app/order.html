@@ -1,0 +1,305 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href= "{% static './order_cart/style_order.css' %}">
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"  rel="stylesheet"/>
+    <link rel="stylesheet" href="{%static './assets/fonts/fontawesome-free-6.0.0-beta2-web/css/all.css' %}">
+    <link  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"  rel="stylesheet"/>
+</head>
+<body>
+    <div class="cart-panel">
+        <div class="back__homepage">   
+            <a href="../index.html">
+                <img class="back__homepage-icon" src="https://image.flaticon.com/icons/png/512/892/892646.png" alt="arrow">
+                Home
+            </a>
+        </div>
+        <div class="cart__heading">   
+            <span>
+                Order confirmation
+            </span>
+        </div>
+    <div class="cart__info">
+        <div class="customer__info">
+            <h5>Payment methods</h5>
+            <form class="payment_method" action="">
+                  <input type="radio" id="cash" name="payment_method" value="Cash">
+                  <label for="cash">
+                        <img class="payment_method-icon" src=" {% static 'assets/images/cash.jpeg' %}" alt="cash-icon">
+                        Cash
+                  </label><br>
+                  <input type="radio" id="momo" name="payment_method" value="MoMo">
+                  <label for="momo">
+                        <img class="payment_method-icon" src="{% static 'assets/images/momo.png' %}" alt="cash-icon">
+                        MoMo
+                  </label><br>
+                  <input type="radio" id="banking" name="payment_method" value="Internet Baking">
+                  <label for="banking">
+                        <img class="payment_method-icon" src="{% static 'assets/images/banking.png' %}" alt="cash-icon">
+                        Internet Baking
+                  </label><br>
+            </form> 
+            <h5>Customer information</h5>
+            <form class="info" action="">
+                <input type="text" id="fname" name="fname" placeholder="Input your fullname"><br>
+                <input type="tel" id="phone" name="phone" placeholder="Input your phone number" ><br>
+                <input type="text" id="instructions" name="instructions" placeholder="Shipping instructions " ><br>
+                <input type="text" id="address" name="address" placeholder="Input your address" ><br>
+                <input type="date" id = "bday" name="bday"><br><br>
+                <input type="submit" value="Submit">
+            </form>
+            <p>Agree to the <a href="">terms and conditions</a> of purchase of Tea-Rex</p>
+        </div>
+        
+        <div class="order__info">
+            <h5>Order Cart</h5>
+            <ul class="cart__list">
+                <li class="cart__item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" alt="img-header" class="header__cart-img">
+                    <div class="cart_item-info">
+                        <div class="cart__item-head">
+                            <h6 class="cart__item-name">Cafe sua da nhieu duog it da Cafe sua da nhieu duog it da Cafe sua da nhieu duog it da</h6>
+                            <div class="cart-item-price-wrap">
+                                <span class="cart-item-price">65.000đ</span>
+                                <span class="cart-item-multiply">x</span>
+                                <span class="cart-item-qtn">2</span>
+                            </div>
+                        </div>
+
+                        <div class="cart-item-body">
+                            <span class="cart-item-note">
+                                Note: 50% sugar
+                            </span>
+                            <span class="cart-item-description">
+                                Size: M
+                            </span>
+                            
+                        </div>
+                    </div>
+                </li>
+                <li class="cart__item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" alt="img-header" class="header__cart-img">
+                    <div class="cart_item-info">
+                        <div class="cart__item-head">
+                            <h6 class="cart__item-name">Cafe sua da </h6>
+                            <div class="cart-item-price-wrap">
+                                <span class="cart-item-price">65.000đ</span>
+                                <span class="cart-item-multiply">x</span>
+                                <span class="cart-item-qtn">2</span>
+                            </div>
+                        </div>
+
+                        <div class="cart-item-body">
+                            <span class="cart-item-note">
+                                Note: 50% sugar
+                            </span>
+                            <span class="cart-item-description">
+                                Size: M
+                            </span>
+                            
+                        </div>
+                    </div>
+                </li>
+                <li class="cart__item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" alt="img-header" class="header__cart-img">
+                    <div class="cart_item-info">
+                        <div class="cart__item-head">
+                            <h6 class="cart__item-name">Cafe sua da </h6>
+                            <div class="cart-item-price-wrap">
+                                <span class="cart-item-price">65.000đ</span>
+                                <span class="cart-item-multiply">x</span>
+                                <span class="cart-item-qtn">2</span>
+                            </div>
+                        </div>
+
+                        <div class="cart-item-body">
+                            <span class="cart-item-note">
+                                Note: 50% sugar
+                            </span>
+                            <span class="cart-item-description">
+                                Size: M
+                            </span>
+                            
+                        </div>
+                    </div>
+                </li>
+                <li class="cart__item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" alt="img-header" class="header__cart-img">
+                    <div class="cart_item-info">
+                        <div class="cart__item-head">
+                            <h6 class="cart__item-name">Cafe sua da </h6>
+                            <div class="cart-item-price-wrap">
+                                <span class="cart-item-price">65.000đ</span>
+                                <span class="cart-item-multiply">x</span>
+                                <span class="cart-item-qtn">2</span>
+                            </div>
+                        </div>
+
+                        <div class="cart-item-body">
+                            <span class="cart-item-note">
+                                Note: 50% sugar
+                            </span>
+                            <span class="cart-item-description">
+                                Size: M
+                            </span>
+                            
+                        </div>
+                    </div>
+                </li>
+                <li class="cart__item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" alt="img-header" class="header__cart-img">
+                    <div class="cart_item-info">
+                        <div class="cart__item-head">
+                            <h6 class="cart__item-name">Cafe sua da </h6>
+                            <div class="cart-item-price-wrap">
+                                <span class="cart-item-price">65.000đ</span>
+                                <span class="cart-item-multiply">x</span>
+                                <span class="cart-item-qtn">2</span>
+                            </div>
+                        </div>
+
+                        <div class="cart-item-body">
+                            <span class="cart-item-note">
+                                Note: 50% sugar
+                            </span>
+                            <span class="cart-item-description">
+                                Size: M
+                            </span>
+                            
+                        </div>
+                    </div>
+                </li>
+                <li class="cart__item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" alt="img-header" class="header__cart-img">
+                    <div class="cart_item-info">
+                        <div class="cart__item-head">
+                            <h6 class="cart__item-name">Cafe sua da </h6>
+                            <div class="cart-item-price-wrap">
+                                <span class="cart-item-price">65.000đ</span>
+                                <span class="cart-item-multiply">x</span>
+                                <span class="cart-item-qtn">2</span>
+                            </div>
+                        </div>
+
+                        <div class="cart-item-body">
+                            <span class="cart-item-note">
+                                Note: 50% sugar
+                            </span>
+                            <span class="cart-item-description">
+                                Size: M
+                            </span>
+                            
+                        </div>
+                    </div>
+                </li>
+                <li class="cart__item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" alt="img-header" class="header__cart-img">
+                    <div class="cart_item-info">
+                        <div class="cart__item-head">
+                            <h6 class="cart__item-name">Cafe sua da </h6>
+                            <div class="cart-item-price-wrap">
+                                <span class="cart-item-price">65.000đ</span>
+                                <span class="cart-item-multiply">x</span>
+                                <span class="cart-item-qtn">2</span>
+                            </div>
+                        </div>
+
+                        <div class="cart-item-body">
+                            <span class="cart-item-note">
+                                Note: 50% sugar
+                            </span>
+                            <span class="cart-item-description">
+                                Size: M
+                            </span>
+                            
+                        </div>
+                    </div>
+                </li>
+                <li class="cart__item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" alt="img-header" class="header__cart-img">
+                    <div class="cart_item-info">
+                        <div class="cart__item-head">
+                            <h6 class="cart__item-name">Cafe sua da </h6>
+                            <div class="cart-item-price-wrap">
+                                <span class="cart-item-price">65.000đ</span>
+                                <span class="cart-item-multiply">x</span>
+                                <span class="cart-item-qtn">2</span>
+                            </div>
+                        </div>
+
+                        <div class="cart-item-body">
+                            <span class="cart-item-note">
+                                Note: 50% sugar
+                            </span>
+                            <span class="cart-item-description">
+                                Size: M
+                            </span>
+                            
+                        </div>
+                    </div>
+                </li>
+                <li class="cart__item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" alt="img-header" class="header__cart-img">
+                    <div class="cart_item-info">
+                        <div class="cart__item-head">
+                            <h6 class="cart__item-name">Cafe sua da </h6>
+                            <div class="cart-item-price-wrap">
+                                <span class="cart-item-price">65.000đ</span>
+                                <span class="cart-item-multiply">x</span>
+                                <span class="cart-item-qtn">2</span>
+                            </div>
+                        </div>
+
+                        <div class="cart-item-body">
+                            <span class="cart-item-note">
+                                Note: 50% sugar
+                            </span>
+                            <span class="cart-item-description">
+                                Size: M
+                            </span>
+                            
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            <ul class="calculate_price">
+                <li class="price">
+                    <div class="price__wrap">
+                        <h6 class="price__header">Price</h6>
+                        <div class="price__without-promotion-wrap">
+                            <span class="price__without-promotion">90000000đ</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="code__promotion">
+                    <a href="" class="code__promotion-link">Promotion code</a>
+                </li>
+
+                <li class="total__price">
+                    <div class="total__price__wrap">
+                        <span class="total__price__header">Total Price</span>
+                        <div class="total__price__with-promotion-wrap">
+                            <span class="total__price__with-promotion">90000000đ</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    </div>
+</body>
+</html>

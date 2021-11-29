@@ -11,6 +11,10 @@ def index(request):
     """The home page for Learning Log"""
     return render(request, 'coffee_app/index.html')
 
+def order(request):
+    """The home page for Learning Log"""
+    return render(request, 'coffee_app/order.html')
+
 
 # def items(request):
 #     items = Item.objects.order_by('price')

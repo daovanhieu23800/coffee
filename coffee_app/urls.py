@@ -11,4 +11,5 @@ urlpatterns = [
     path('items/tea/', views.items_detail_3, name="type3"),
     path('items/ice/', views.items_detail_4, name="type4"),
     path('items/snack/', views.items_detail_5, name="type5"),
+    path('order/', views.order, name='order'),
 ]
