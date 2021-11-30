@@ -17,6 +17,7 @@
     <link  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"  rel="stylesheet"/>
     <link rel="stylesheet" href="{%static './assets/fonts/fontawesome-free-6.0.0-beta2-web/css/all.css' %}">
     <link  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"  rel="stylesheet"/>
+   
 </head>
 <body>
     <div class="cart-panel">
@@ -32,7 +33,7 @@
             </span>
         </div>
     <div class="cart__info">
-        <div class="customer__info">
+        <div class="customer__info" id="customer__info">
             <h5>Payment methods</h5>
             <form class="payment_method" action="">
                   <input type="radio" id="cash" name="payment_method" value="Cash">
@@ -52,13 +53,15 @@
                   </label><br>
             </form> 
             <h5>Customer information</h5>
-            <form class="info" action="">
-                <input type="text" id="fname" name="fname" placeholder="Input your fullname"><br>
-                <input type="tel" id="phone" name="phone" placeholder="Input your phone number" ><br>
+            <form class="info" id="info" action="">
+                <input type="text" id="fname" name="fname" placeholder="Input your fullname" ><br>
+                <input type="tel" id="phone" name="phone" placeholder="Input your phone number"  ><br>
                 <input type="text" id="instructions" name="instructions" placeholder="Shipping instructions " ><br>
                 <input type="text" id="address" name="address" placeholder="Input your address" ><br>
                 <input type="date" id = "bday" name="bday"><br><br>
-                <input type="submit" value="Submit">
+                <!-- <input id="submit-form" type="submit" value="Submit"> -->
+                <button id="submit-form" type="button" value="Submit">Submit </button>
+
             </form>
             <p>Agree to the <a href="">terms and conditions</a> of purchase of Tea-Rex</p>
         </div>
@@ -66,15 +69,16 @@
         <div class="order__info">
             <h5>Order Cart</h5>
             <ul class="cart__list">
+                {% for item in items %}
                 <li class="cart__item">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" alt="img-header" class="header__cart-img">
                     <div class="cart_item-info">
                         <div class="cart__item-head">
-                            <h6 class="cart__item-name">Cafe sua da nhieu duog it da Cafe sua da nhieu duog it da Cafe sua da nhieu duog it da</h6>
+                            <h6 class="cart__item-name">{{item.item.name}}</h6>
                             <div class="cart-item-price-wrap">
-                                <span class="cart-item-price">65.000đ</span>
+                                <span class="cart-item-price">{{item.item.price}}</span>
                                 <span class="cart-item-multiply">x</span>
-                                <span class="cart-item-qtn">2</span>
+                                <span class="cart-item-qtn">{{item.quantity}}</span>
                             </div>
                         </div>
 
@@ -85,11 +89,14 @@
                             <span class="cart-item-description">
                                 Size: M
                             </span>
-                            
+                            <span class="cart-item-description">
+                                total: ${{item.get_total}} 
+                            </span>
                         </div>
                     </div>
                 </li>
-                <li class="cart__item">
+                {% endfor %}
+                <!-- <li class="cart__item">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" alt="img-header" class="header__cart-img">
                     <div class="cart_item-info">
                         <div class="cart__item-head">
@@ -274,13 +281,13 @@
                     </div>
                 </li>
             </ul>
-            
+             -->
             <ul class="calculate_price">
                 <li class="price">
                     <div class="price__wrap">
                         <h6 class="price__header">Price</h6>
                         <div class="price__without-promotion-wrap">
-                            <span class="price__without-promotion">90000000đ</span>
+                            <span class="price__without-promotion">${{order.get_cart_total}}</span>
                         </div>
                     </div>
                 </li>
@@ -292,7 +299,7 @@
                     <div class="total__price__wrap">
                         <span class="total__price__header">Total Price</span>
                         <div class="total__price__with-promotion-wrap">
-                            <span class="total__price__with-promotion">90000000đ</span>
+                            <span class="total__price__with-promotion"></span>
                         </div>
                     </div>
                 </li>
@@ -301,5 +308,73 @@
         </div>
     </div>
     </div>
+
+
+    <script type="text/javascript">
+
+function getToken(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+    }   
+    const csrftoken = getToken('csrftoken');
+        var total='{{order.get_cart_total}}'
+        var form=document.getElementById('info')
+        document.getElementById('submit-form').addEventListener('click', function(e){
+            submitFormData()
+        })
+
+        function submitFormData(){
+            console.log("submit has been click")
+            var userFormData={
+                'name':null,
+                'email':null,
+                'total':total,
+            }
+            var shippingInfo = {
+                'instructions':null,
+                'address':null,
+                'bday':null,
+            }
+
+            userFormData.phone = form.phone.value
+            userFormData.fname = form.fname.value
+            shippingInfo.bday = form.bday.value
+            shippingInfo.address = form.address.value
+            shippingInfo.instructions = form.instructions.value
+
+            var url='/process_order/'
+            fetch(url,{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json',
+                    'X-CSRFToken':csrftoken,
+                },
+                body:JSON.stringify({'form':userFormData, 'shipping':shippingInfo})
+            })
+            .then((response)=>response.json)
+            .then((data)=>{
+                console.log('success',data)
+                alert('transaction completed')
+                window.location.href = "{%url 'coffee_app:index'%}"
+            })
+        }
+
+
+
+    </script>
+
+
+
 </body>
 </html>

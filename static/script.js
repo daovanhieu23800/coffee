@@ -18,7 +18,7 @@ const  handleMenuTab1 = async ()=>{
                                     
                                     <div class="product-card--footer">
                                         <span>${items.price}</span>
-                                        <div class="product-card--button" onclick="openCardPopup('${items.name}', '${items.description}','${items.price}', '${items.image}')">
+                                        <div class="product-card--button" onclick="openCardPopup('${items.id}', '${items.name}', '${items.description}','${items.price}', '${items.image}')">
                                             <i class="fas fa-plus" ></i>
                                         </div>
                                     </div>
@@ -47,7 +47,7 @@ const  handleMenuTab2 = async ()=>{
                                     <span id="product-name"><b>${items.name}</b></span>
                                     <div class="product-card--footer">
                                         <span>${items.price}d</span>
-                                        <div class="product-card--button" onclick="openCardPopup('${items.name}', '${items.description}','${items.price}', '${items.image}')">
+                                        <div class="product-card--button" onclick="openCardPopup('${items.id}', '${items.name}', '${items.description}','${items.price}', '${items.image}')">
                                             <i class="fas fa-plus" ></i>
                                         </div>
                                     </div>
@@ -76,7 +76,7 @@ const  handleMenuTab3 = async ()=>{
                                     <span id="product-name"><b>${items.name}</b></span>
                                     <div class="product-card--footer">
                                         <span>${items.price}d</span>
-                                        <div class="product-card--button" onclick="openCardPopup('${items.name}', '${items.description}','${items.price}', '${items.image}')">
+                                        <div class="product-card--button" onclick="openCardPopup('${items.id}', '${items.name}', '${items.description}','${items.price}', '${items.image}')">
                                             <i class="fas fa-plus" ></i>
                                         </div>
                                     </div>
@@ -104,7 +104,7 @@ const  handleMenuTab4 = async ()=>{
                                     <span id="product-name"><b>${items.name}</b></span>
                                     <div class="product-card--footer">
                                         <span>${items.price}d</span>
-                                        <div class="product-card--button" onclick="openCardPopup('${items.name}', '${items.description}','${items.price}', '${items.image}')">
+                                        <div class="product-card--button" onclick="openCardPopup('${items.id}', '${items.name}', '${items.description}','${items.price}', '${items.image}')">
                                             <i class="fas fa-plus" ></i>
                                         </div>
                                     </div>
@@ -243,7 +243,9 @@ const cancelPromotionPopup = () =>{
     document.querySelector('.promotion_popup-container').style.display = 'none';
 }
 
-const openCardPopup = (name, description, price,image) =>{
+
+
+const openCardPopup = (id, name, description, price,image) =>{
     document.querySelector('.card_popup-container').innerHTML = `
     <div class="card_popup">
             <div class="card_popup_cancel">
@@ -292,18 +294,53 @@ const openCardPopup = (name, description, price,image) =>{
                     <label for="l">L (+10000)</label>
                 </div>
             </div>
-            
            
-            <div class="addtocard">
+            <button data-action="add" onclick="addtocard('${id}', '${name}',${price})" class="addtocard">
                 <span id="totalPrice">$ ${price}  </span>
-            </div>
+            </button>
             
 
         </div>`
     document.querySelector('.card_popup-container').style.display = 'block';
 }
+// --------------
+const addtocard = (id,name,price) =>{
+    var action = 'add';
+    console.log(name,price,id,action);
+    console.log(user);
+    if (user === 'AnonymousUser'){
+        console.log('not logged in')
 
+    }
+    else{
+        updateUserOrder(id,name,price,action);
 
+    }
+
+    
+}
+function updateUserOrder(id,name,price,action){
+    console.log('user is logged in,sending data')
+
+    var url='/update_item/'
+    
+    fetch(url,{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json',
+            'X-CSRFToken':csrftoken,
+        },
+        body:JSON.stringify({'itemId':id, 'action':action})
+    })
+    .then((response) =>{
+        return response.json();
+    })
+    .then((data)=> {
+        console.log('Data:',data)
+        location.reload()
+    });
+}
+// --------------
 const handlecoupon = (e)=>{
     let button = document.querySelector('.input-group-prepend');
 
@@ -383,3 +420,7 @@ const showPromotion = ()=>{
             document.querySelector(".promotion_popup-container").style.display="block";
         }
 }
+
+
+
+// -------------
