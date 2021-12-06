@@ -381,7 +381,7 @@ const showPromotion = ()=>{
         </div>
         <div class="allcoupon">
             <div class="coupon-container">
-                <img src="./assets/images/coupon10.jpg" alt="coupon 105">
+                <img src="{% static './assets/images/coupon10.jpg' %}" alt="coupon 105">
                 <div class="coupon-information">
                     <div class="coupon-description">Giảm 15% từ 3 sản phẩm Cà phê đóng gói/Lon & nước</div>
                     <span>het han trong 2 ngay</span>
@@ -389,7 +389,7 @@ const showPromotion = ()=>{
                 </div>
             </div>
             <div class="coupon-container">
-                <img src="./assets/images/coupon10.jpg" alt="coupon 105">
+                <img src="{% static './assets/images/coupon10.jpg' %}" alt="coupon 105">
                 <div class="coupon-information">
                     <div class="coupon-description">Giảm 15% từ 3 sản phẩm Cà phê đóng gói/Lon & nước</div>
                     <span>het han trong 2 ngay</span>
@@ -397,7 +397,7 @@ const showPromotion = ()=>{
                 </div>
             </div>
             <div class="coupon-container">
-                <img src="./assets/images/coupon10.jpg" alt="coupon 105">
+                <img src="{% static './assets/images/coupon10.jpg' %}" alt="coupon 105">
                 <div class="coupon-information">
                     <div class="coupon-description">Giảm 15% từ 3 sản phẩm Cà phê đóng gói/Lon & nước</div>
                     <span>het han trong 2 ngay</span>

@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tea-Rex Cafe</title>
+    <link rel="icon" href="{% static './assets/images/Logo.jpg' %}" type="image/x-icon" />
     <link rel="stylesheet" href=" {% static './assets/css/base.css' %} "/>
     <link rel="stylesheet" href=" {% static './assets/css/main.css' %} "/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -122,11 +123,11 @@
                             </li>
      
                             <li class="header__nav-item">
-                                <a href=" {% static '' %} " class="header__nav-item--link">STORE</a>
+                                <a href=" " class="header__nav-item--link">STORE</a>
                             </li>
      
                             <li class="header__nav-item"> 
-                                <a href=" {% static '' %} " class="header__nav-item--link">NEWS</a>
+                                <a href=" {% url 'coffee_app:news' %}  " class="header__nav-item--link">NEWS</a>
                             </li>       
      
                              <li class="header__nav-item">
@@ -142,7 +143,70 @@
                         </ul>
 
                     </div>
-                    
+                        <!-- Logo mobile -->
+                    <div class="nav-mobile-logo">
+                        <a href="#" class="nav-mobile-logo--link">
+                            <img style="position: absolute;top: 10px;left: 10px;" class="nav-mobile-logo--icon" src="./assets/images/Logo.jpg" alt="logo" >
+                        </a>        
+                    </div>
+                    <!--  -->
+                    <label for="nav-mobile-input" class="nav__bars-btn">
+                        <i class="nav__bars-btn--icon fas fa-bars"></i>
+                    </label>
+
+                    <input type="checkbox" hidden name="" id="nav-mobile-input" class="nav-input">
+
+                    <label for="nav-mobile-input" class="nav__overlay"> </label>
+                    <div class="nav__mobile">
+                        <label for="nav-mobile-input" class="nav__mobile-close">
+                            <i class="nav__mobile-close--icon fas fa-times"></i>
+                        </label>
+                        <ul class="nav__mobile-list ">
+                            <li class="nav__mobile-item">
+                                <a href="#" class="nav__mobile-item--link">
+                                    <i class="nav__mobile-icon fas fa-home"></i>
+                                    HOME
+                                </a>
+                            </li>
+        
+                            <li class="nav__mobile-item">
+                                <a href="#order" class="nav__mobile-item--link">
+                                    <i class="nav__mobile-icon fas fa-award"></i>
+                                    ORDER
+                                </a>
+                            </li>
+         
+
+                            <li class="nav__mobile-item"> 
+                                <a href="#new" class="nav__mobile-item--link">
+                                    <i class="nav__mobile-icon fas fa-newspaper"></i>
+                                    NEWS
+                                </a>
+                            </li>  
+                        
+                            <li class="nav__mobile-item"> 
+                                <a href="javascript:void(0)" class="nav__mobile-item--link promotelink" onclick="showPromotion()">
+                                    <i class="nav__mobile-icon fas fa-ad"></i>
+                                    PROMOTION
+                                </a>
+                            </li>  
+                            
+                            <li class="nav__mobile-item"> 
+                                <a href="{% url 'users:login' %}" class="nav__mobile-item--link">
+                                    <i class="nav__mobile-icon fas fa-user"></i>
+                                    LOGIN
+                                </a>
+                            </li>  
+                            
+                            <li class="nav__mobile-item"> 
+                                <a href="{% url 'coffee_app:order' %}" class="nav__mobile-item--link">
+                                    <i class="nav__mobile-icon fas fa-cart-plus"></i>
+                                    ORDER CONFIRMATION
+                                </a>
+                            </li>  
+                        </ul>
+                    </div>
+                <!--  -->
                     <ul class="header__nav-list">
                             <li class="header__nav-user"> 
                             
@@ -266,7 +330,7 @@
             </div>
         </div>
 
-            <div class="product">
+            <div id ="order" class="product">
                 <div class="container">
                     <div class="product__heading">
                         <i class="product__heading-icon fas fa-award"></i>
@@ -361,7 +425,7 @@
                 </div>    
             </div>
                 
-            <div class="news">
+            <div id="news" class="news">
                 <div class="container">
                     <div class="product__heading">
                         <i class="product__heading-icon fas fa-newspaper"></i>
@@ -385,7 +449,7 @@
                     <!-- -------------------------- -->
                 </div>   
                 <div class="read-all">
-                    <a href="#">
+                    <a href="{% url 'coffee_app:news' %}">
                         <span>Read all</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
@@ -398,24 +462,107 @@
             <div class="footer__content">
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-3">
-                          <h3 class="footer__heading">+ Column 1</h3>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12 footer__mobile footer__tablet">
+                          <h3 class="footer__heading">CONTACT US</h3>
+                          <div class="footer__contact">
+                              <h5>Tea-Rex Cafe</h5>
+                              <ul class="footer__contact-list">
+                                    <li class="footer__contact-item">
+                                        <span>268 Ly Thuong Kiet St  </span> 
+                                    </li>
+                                    <li class="footer__contact-item">
+                                    <span>Ward 14, District 10, Ho Chi Minh City 70000</span> 
+                                    </li>
+
+                                    <li class="footer__contact-item">
+                                        <span>Phone: (028) 7300.4183 - 03.9798.9798</span> 
+                                    </li>
+
+                                    <li class="footer__contact-item">
+                                        <span>Email:  </span> 
+                                        <a class="footer__email" href="mailto:tuvan@oisp.edu.vn">tuvan@oisp.edu.vn</a>
+                                    </li>
+                              </ul>
+                          </div>
                           
                         </div>
 
-                        <div class="col-sm-3">
-                          <h3 class="footer__heading">+ Column 2</h3>
-                          
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12 footer__mobile footer__tablet">
+                          <h3 class="footer__heading">OPENING HOURS</h3>
+                            <ul class="hour__list">
+                                <li class="hour__item">
+                                    <span class="hour__item--day">MONDAY</span>
+                                    <span class="hour__item--time">7:00 am - 5:00 pm</span>
+                                </li>
+                                <li class="hour__item">
+                                    <span class="hour__item--day">TUESDAY</span>
+                                    <span class="hour__item--time">7:00 am - 5:00 pm</span>
+                                </li>
+                                <li class="hour__item">
+                                    <span class="hour__item--day">WEDNESDAY</span>
+                                    <span class="hour__item--time">7:00 am - 5:00 pm</span>
+                                </li>
+                                <li class="hour__item">
+                                    <span class="hour__item--day">THURSDAY</span>
+                                    <span class="hour__item--time">7:00 am - 5:00 pm</span>
+                                </li>
+                                <li class="hour__item">
+                                    <span class="hour__item--day">FRIDAY</span>
+                                    <span class="hour__item--time">7:00 am - 5:00 pm</span>
+                                </li>
+                                <li class="hour__item">
+                                    <span class="hour__item--day">SATURDAY</span>
+                                    <span class="hour__item--time">8:00 am - 2:00 pm</span>
+                                </li>
+                                <li class="hour__item">
+                                    <span class="hour__item--day">SUNDAY</span>
+                                    <span class="hour__item--time hour__item--time-close ">CLOSED</span>
+                                </li>
+                            </ul>
                         </div>
 
-                        <div class="col-sm-3">
-                          <h3 class="footer__heading">+ Column 3</h3>
-                          
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12 footer__mobile footer__tablet">
+                          <h3 class="footer__heading">STAY IN TOUCH</h3>
+                          <h5 class="social__heading">Follow #TeaRex on social media</h5>
+                          <div class="intouch__content">
+                            <!-- <h5>Follow #TeaRex on social media</h5> -->
+                              <a href="https://www.facebook.com/The.Coffee.House.2014" class="social-link">
+                                <i class="socail-icon fab fa-facebook-f"></i>
+                              </a>
+                              <a href="https://www.instagram.com/tea_rex120/" class="social-link">
+                                <i class="socail-icon fab fa-instagram"></i>
+                             </a>
+                            <a href="https://twitter.com/thecoffeehouse_" class="social-link">
+                                <i class="socail-icon fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.youtube.com/c/THECOFFEEHOUSE2014" class="social-link">
+                                <i class="socail-icon fab fa-youtube"></i>
+                            </a>
+                          </div>
                         </div>
 
-                        <div class="col-sm-3">
-                            <h3 class="footer__heading">+ Column 3</h3>
-                            
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12 footer__mobile footer__tablet">
+                            <h3 class="footer__heading">SITE LINK</h3>
+                            <div class="site__content">
+                                <ul class="site__list">
+                                    <li class="site__item">
+                                        <a href="http://127.0.0.1:8000/" class="site__link">HOME</a>
+                                    </li>
+                                    <li class="site__item">
+                                        <a href="{% url 'coffee_app:order' %}" class="site__link">ORDER</a>
+                                    </li>
+                                    <li class="site__item">
+                                        <a href="{% url 'coffee_app:news' %}" class="site__link">NEWS</a>
+                                    </li>
+                                    <li class="site__item">
+                                        <!-- <a href="" class="site__link">PROMOTION</a> -->
+                                        <a href="javascript:void(0)" class="site__link" onclick="showPromotion()">PROMOTION</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="footer__logo">
+                                <img src="{% static './assets/images/Logo.jpg' %}" alt="logo" class ="footer__nav-logo" >
+                            </div>
                           </div>
                     </div>
                 </div>
@@ -423,7 +570,7 @@
 
             <div class="footer__bottom">
                 <div class="container">                   
-                    <p class="footer__text">© 2021 - Bản quyền thuộc về nhóm 8</p>
+                    <p class="footer__text">©2020 - 2021 Tea-Rex Cafe - All rights reserved</p>
             </div>
             </div>
         </footer>

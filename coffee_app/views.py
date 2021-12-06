@@ -24,7 +24,11 @@ def order(request):
         order = {'get_cart_total':0, 'get_cart_quantity':0}
     context = {'items': items, 'order':order}
     return render(request, 'coffee_app/order.html', context)
+def news(request):
+    """The home page """
+    return render(request, 'coffee_app/news.html')
 
+    
 def updateItem(request):
     data = json.loads(request.body)
     itemId = data['itemId']
