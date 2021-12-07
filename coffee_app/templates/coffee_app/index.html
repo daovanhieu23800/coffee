@@ -135,11 +135,11 @@
                                     
                                 </a>
                              </li>
+                             {%if user.is_superuser%}
                              <li class="header__nav-item">
-                                <a href="{% url 'admin:index' %}" class="header__nav-item--link">ADMIN
-                                    
-                                </a>
+                                <a href="{% url 'admin:index' %}" class="header__nav-item--link">ADMIN</a>
                              </li>
+                             {%endif%}
                         </ul>
 
                     </div>
