@@ -130,10 +130,8 @@
                                 <a href=" {% url 'coffee_app:news' %}  " class="header__nav-item--link">NEWS</a>
                             </li>       
      
-                             <li class="header__nav-item">
-                                <a href=" {% static '' %} " class="header__nav-item--link">PROMOTION
-                                    
-                                </a>
+                            <li class="header__nav-item">
+                                <a href="javascript:void(0)" class="header__nav-item--link promotelink" onclick="showPromotion()">PROMOTION</a>
                              </li>
                              {%if user.is_superuser%}
                              <li class="header__nav-item">
