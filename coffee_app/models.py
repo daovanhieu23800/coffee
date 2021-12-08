@@ -58,10 +58,16 @@ class OrderItem(models.Model):
     item = models.ForeignKey(Item, on_delete=models.SET_NULL, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
     quantity = models.IntegerField(default=0, null=True)
-
+    size = models.CharField(max_length=1,default="S")
+    note = models.CharField(max_length=50, default="normal")
     @property
     def get_total(self):
-        total = self.item.price * self.quantity
+        plus = 0
+        if self.size == 'M':
+            plus = 5000
+        elif self.size == 'L':
+            plus = 10000
+        total = self.item.price * self.quantity + plus*self.quantity
         return total
 
 class ShippingAddress(models.Model):
@@ -74,3 +80,14 @@ class ShippingAddress(models.Model):
    
     def __str__(self):
         return self.address
+
+
+###news 
+
+class News(models.Model):
+    title = models.CharField(max_length=100, null=False, default="title here")
+    avatar = models.ImageField(null=False)
+    content = models.CharField(max_length=300, default="pls input here")
+
+    def __str__(self):
+        return self.title

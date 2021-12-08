@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Item, Order, OrderItem, ShippingAddress
+from .models import Item, News, Order, OrderItem, ShippingAddress
 from django.core import serializers
 from django.http import HttpResponse
 from .serializer import ItemSerializers
@@ -29,11 +29,17 @@ def news(request):
     """The home page """
     return render(request, 'coffee_app/news.html')
 
+def orderhistory(request):
+    """The home page """
+    return render(request, 'coffee_app/orderhistory.html')
     
 def updateItem(request):
     data = json.loads(request.body)
     itemId = data['itemId']
     action = data['action']
+    quantity = data['quantity']
+    size = data['size']
+    note = data['note']
     print(itemId)
     print(action)
 
@@ -41,17 +47,17 @@ def updateItem(request):
     item = Item.objects.get(id = itemId)
 
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
-    orderItem, created = OrderItem.objects.get_or_create(order=order, item=item)
+    orderItem, created = OrderItem.objects.get_or_create(order=order, item=item, quantity = quantity, size = size, note = note)
 
-    if action == 'add':
-        orderItem.quantity += 1
-    elif action == 'remove':
-        orderItem.quantity -= 1
+    #if action == 'add':
+    #   orderItem.quantity += 1
+    #elif action == 'remove':
+    #    orderItem.quantity -= 1
 
     orderItem.save()
 
-    if orderItem.quantity <= 0:
-        orderItem.delete()
+    #if orderItem.quantity <= 0:
+    #    orderItem.delete()
 
     return JsonResponse('item was added',safe=False)
 
@@ -124,4 +130,15 @@ def items_detail_5(request):
     serializer = ItemSerializers(items, many = True)
 
     return JsonResponse(serializer.data, safe = False)
+
+
+###news
+
+def get_news(request):
+    items = News.objects.all().values()
+
+    items_list = list(items)
+
+    data = json.dumps(items_list)
+    return HttpResponse(data, content_type="application/json")
 

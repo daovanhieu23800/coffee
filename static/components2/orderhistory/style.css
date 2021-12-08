@@ -1,0 +1,67 @@
+.ordershistory-container{
+    /* position: relative; */
+    padding-top: calc(var(--header-height) + 20px);
+
+    height: auto;
+}
+.orderhistory{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.dateOrder{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+.orderhistory-product{
+    display: flex;
+    height: 80px;
+}
+.orderhistory-product img{
+    width: 80px;
+    height: auto;
+}
+.hoder-detail span{
+    display: block;
+    margin-left: 25px;
+    margin-top: 5px;
+}
+.hoder-note{
+    height: 30px;
+    overflow-y: scroll;
+
+}
+.hoder-note::-webkit-scrollbar {
+    display: none;
+}
+
+.hoder-sumary{
+    display: flex;
+    gap: 30px;
+    margin-top: 10px;
+    width: 400px;
+    position: relative;
+    /* justify-content: right;
+    right: 0; */
+    float: right;
+}
+.hoder-shipping{
+    flex: 2;
+}
+
+.hoder-sumary--price{
+    flex: 1;
+
+}
+.hoder-shipping span{
+    display: block;
+}
+.sub-summary span{
+    display: block;
+}
+.hoder-sumary--price>span{
+    font-size: 15px;
+}
+#horder{
+    font-size: 20px;
+}

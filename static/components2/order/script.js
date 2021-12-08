@@ -1,24 +1,21 @@
 const  handleMenuTab1 = async ()=>{
-    const response = await fetch('http://127.0.0.1:8000/items/favourite/');
+    const response = await fetch('https://617bd868d842cf001711c0fe.mockapi.io/item');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>12)
-        newJson = myJson.slice(0,12);
-    const html = myJson.map((items) =>{
-         console.log(myJson);
+        newJson = myJson;
+    const html = newJson.map((items) =>{
+        // console.log(items);
     return `
     <div class="product-card">
                                 <div class="product-card--image">
-                                    <img src="/static/assets/${items.image}" alt="....">
-                                    
+                                    <img src="./assets/images/coffee1.jpg" alt="">
                                 </div>
                                 <div class="product-card--info">
-                                    <span id="product-name">
-                                        <b>${items.name}</b></span>
-                                    
+                                    <span id="product-name"><b>${items.name}</b></span>
                                     <div class="product-card--footer">
-                                        <span>${items.price}</span>
-                                        <div class="product-card--button" onclick="openCardPopup('${items.id}', '${items.name}', '${items.description}','${items.price}', '${items.image}')">
+                                        <span>$${items.price}</span>
+                                        <div class="product-card--button" onclick="openCardPopup('${items.name}', '${items.description}','${items.price}', '${items.image}')">
                                             <i class="fas fa-plus" ></i>
                                         </div>
                                     </div>
@@ -30,25 +27,26 @@ const  handleMenuTab1 = async ()=>{
     a.innerHTML = html;          
 };
 
+
 const  handleMenuTab2 = async ()=>{
-    const response = await fetch('http://127.0.0.1:8000/items/coffee/');
+    const response = await fetch('https://617bd868d842cf001711c0fe.mockapi.io/item2');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>12)
-        newJson = myJson.slice(0,12);
+        newJson = myJson;
     const html = newJson.map((items) =>{
         // console.log(items);
     return `
     <div class="product-card">
                                 <div class="product-card--image">
-                                    <img src="/static/assets/${items.image}" alt="">
+                                    <img src="./assets/images/coffee2.jpg" alt="">
                                 </div>
                                 <div class="product-card--info">
                                     <span id="product-name"><b>${items.name}</b></span>
                                     <div class="product-card--footer">
-                                        <span>${items.price}d</span>
-                                        <div class="product-card--button" onclick="openCardPopup('${items.id}', '${items.name}', '${items.description}','${items.price}', '${items.image}')">
-                                            <i class="fas fa-plus" ></i>
+                                        <span>$${items.price}</span>
+                                        <div class="product-card--button">
+                                            <i class="fas fa-plus"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -60,24 +58,24 @@ const  handleMenuTab2 = async ()=>{
 };
 
 const  handleMenuTab3 = async ()=>{
-    const response = await fetch('http://127.0.0.1:8000/items/tea/');
+    const response = await fetch('https://617bd868d842cf001711c0fe.mockapi.io/item3');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>12)
-        newJson = myJson.slice(0,12);
+        newJson = myJson;
     const html = newJson.map((items) =>{
         // console.log(items);
     return `
     <div class="product-card">
                                 <div class="product-card--image">
-                                    <img src="/static/assets/${items.image}" alt="">
+                                    <img src="./assets/images/coffee3.jpg" alt="">
                                 </div>
                                 <div class="product-card--info">
                                     <span id="product-name"><b>${items.name}</b></span>
                                     <div class="product-card--footer">
-                                        <span>${items.price}d</span>
-                                        <div class="product-card--button" onclick="openCardPopup('${items.id}', '${items.name}', '${items.description}','${items.price}', '${items.image}')">
-                                            <i class="fas fa-plus" ></i>
+                                        <span>$${items.price}</span>
+                                        <div class="product-card--button">
+                                            <i class="fas fa-plus"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -87,66 +85,10 @@ const  handleMenuTab3 = async ()=>{
     let a = document.querySelector("#third-menu-tab");
     a.innerHTML = html;          
 };
-const  handleMenuTab4 = async ()=>{
-    const response = await fetch('http://127.0.0.1:8000/items/ice/');
-    const myJson = await response.json();
-    let newJson = [];
-    if(myJson.length>12)
-        newJson = myJson.slice(0,12);
-    const html = newJson.map((items) =>{
-        // console.log(items);
-    return `
-    <div class="product-card">
-                                <div class="product-card--image">
-                                    <img src="/static/assets/${items.image}" alt="">
-                                </div>
-                                <div class="product-card--info">
-                                    <span id="product-name"><b>${items.name}</b></span>
-                                    <div class="product-card--footer">
-                                        <span>${items.price}d</span>
-                                        <div class="product-card--button" onclick="openCardPopup('${items.id}', '${items.name}', '${items.description}','${items.price}', '${items.image}')">
-                                            <i class="fas fa-plus" ></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-    `;
-                }).join(" ");
-    let a = document.querySelector("#four-menu-tab");
-    a.innerHTML = html;          
-};
-const  handleNews = async ()=>{
-    const response = await fetch('http://127.0.0.1:8000/getnews/');
-    const myJson = await response.json();
-    let newJson = [];
-    if(myJson.length>6)
-        newJson = myJson.slice(0,6);
-    const html = newJson.map((items) =>{
-        // console.log(items);
-    return `
-    <div class="news-card">
-                        <img src="/static/assets/images/${items.avatar}" alt="news1">
-                        <div class="news-content">
-                            <h5>${items.title}</h5>
-                            <p>${items.content}</p>
-                            <div class="more-button">
-                                <button>
-                                    <a href="#">More</a>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-    `;
-                }).join(" ");
-    let a = document.querySelector(".news-container");
-    a.innerHTML = html;          
-};
 
 handleMenuTab1();
 handleMenuTab2();
 handleMenuTab3();
-handleMenuTab4();
-handleNews();
 
 var $li = $('#pills-tab li').click(function() {
     $li.removeClass('selected');
@@ -193,9 +135,9 @@ const decreaseQuantity = (a)=>{
         }
     }
     if(size == "m")
-        plus = 5000;
+        plus = 1;
     if(size == "l")
-        plus = 10000;
+        plus = 2;
 
     price = parseFloat(document.querySelector(".price").innerText.slice(1,));
     console.log(plus, " ", price);
@@ -220,9 +162,9 @@ const increaseQuantity = (a)=>{
         }
     }
     if(size == "m")
-        plus = 5000;
+        plus = 1;
     if(size == "l")
-        plus = 10000;
+        plus = 2;
 
     price = parseFloat(document.querySelector(".price").innerText.slice(1,));
     console.log(plus, " ", price);
@@ -243,9 +185,7 @@ const cancelPromotionPopup = () =>{
     document.querySelector('.promotion_popup-container').style.display = 'none';
 }
 
-
-
-const openCardPopup = (id, name, description, price,image) =>{
+const openCardPopup = (name, description, price,image) =>{
     document.querySelector('.card_popup-container').innerHTML = `
     <div class="card_popup">
             <div class="card_popup_cancel">
@@ -253,7 +193,7 @@ const openCardPopup = (id, name, description, price,image) =>{
                 <button onclick="cancelCardPopup()">X</button>
             </div>
             <div class="card_popup-information">
-                <img src="/static/assets/${image}" alt="">
+                <img src="./assets/images/coffee1.jpg" alt="">
                 <div class="card_popup-title">
                     <b>${name}</b>
                     <div class="description">
@@ -275,84 +215,34 @@ const openCardPopup = (id, name, description, price,image) =>{
                 <div data-v-381448aa="" class="card-product-note-item">
                     <img data-v-381448aa="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAxOCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE3IDIwSDFDMC43MzQ3ODQgMjAgMC40ODA0MyAxOS44OTQ2IDAuMjkyODkzIDE5LjcwNzFDMC4xMDUzNTcgMTkuNTE5NiAwIDE5LjI2NTIgMCAxOVYxQzAgMC43MzQ3ODQgMC4xMDUzNTcgMC40ODA0MyAwLjI5Mjg5MyAwLjI5Mjg5M0MwLjQ4MDQzIDAuMTA1MzU3IDAuNzM0Nzg0IDAgMSAwSDE3QzE3LjI2NTIgMCAxNy41MTk2IDAuMTA1MzU3IDE3LjcwNzEgMC4yOTI4OTNDMTcuODk0NiAwLjQ4MDQzIDE4IDAuNzM0Nzg0IDE4IDFWMTlDMTggMTkuMjY1MiAxNy44OTQ2IDE5LjUxOTYgMTcuNzA3MSAxOS43MDcxQzE3LjUxOTYgMTkuODk0NiAxNy4yNjUyIDIwIDE3IDIwWk01IDVWN0gxM1Y1SDVaTTUgOVYxMUgxM1Y5SDVaTTUgMTNWMTVIMTBWMTNINVoiIGZpbGw9IiNFNEU0RTQiLz4KPC9zdmc+Cg==" 
                     alt="" class="card-product-note-icon"> 
-                    <input id ="note" name ="getnote" data-v-381448aa="" type="text" placeholder="Ghi chú thêm cho món này" class="card-product-text"></div>
+                    <input data-v-381448aa="" type="text" placeholder="Ghi chú thêm cho món này" class="card-product-text"></div>
             </div>
             <div class="title_choices">
                 Chon size
             </div>
             <div class="multichoices">
                 <div class="multichoice">
-                    <input type="radio" id="s" name="msize" onclick="handlesize(0,${price})" value="S" checked>
+                    <input type="radio" id="s" name="msize" onclick="handlesize(0,${price})"   value="s" checked>
                     <label for="s">S (+0)</label>
                 </div>
                 <div class="multichoice">
-                    <input type="radio" id="m" name="msize" onclick="handlesize(5000,${price})" value="M">
-                    <label for="m">M (+5000)</label>
+                    <input type="radio" id="m" name="msize" onclick="handlesize(1,${price})" value="m">
+                    <label for="m">M (+1)</label>
                 </div>
                 <div class="multichoice">
-                    <input type="radio" id="l" name="msize" onclick="handlesize(10000,${price})" value="L">
-                    <label for="l">L (+10000)</label>
+                    <input type="radio" id="l" name="msize" onclick="handlesize(2,${price})" value="l">
+                    <label for="l">L (+2)</label>
                 </div>
             </div>
-           
-            <button data-action="add" onclick="addtocard('${id}', '${name}',${price})" class="addtocard">
-                <span id="totalPrice">$ ${price}  </span>
-            </button>
-            
-
+            <div class="addtocard">
+                <span id="totalPrice">$12</span>
+                <span> - add</span>
+            </div>
         </div>`
     document.querySelector('.card_popup-container').style.display = 'block';
 }
-// --------------
-const addtocard = (id,name,price) =>{
-    var action = 'add';
-    console.log(name,price,id,action);
-    let quantity = document.querySelector("#quantityofitem").innerText;
-    console.log(quantity);
-    var radios = document.getElementsByName("msize");
-    var found = 1;
-    for (var i = 0; i < radios.length; i++) {       
-        if (radios[i].checked) {
-            size = radios[i].value;
-            found = 0;
-            break;
-        }
-    }
-    let note = document.getElementById('note').value;
-    console.log(note);
-    if (user === 'AnonymousUser'){
-        console.log('not logged in')
 
-    }
-    else{
-        updateUserOrder(id,name,price,action,quantity,size,note);
 
-    }
-
-    
-}
-function updateUserOrder(id,name,price,action,quantity,size,note){
-    console.log('user is logged in,sending data')
-
-    var url='/update_item/'
-    console.log(quantity)
-    fetch(url,{
-        method:'POST',
-        headers:{
-            'Content-Type':'application/json',
-            'X-CSRFToken':csrftoken,
-        },
-        body:JSON.stringify({'itemId':id, 'action':action, 'quantity':quantity,'size':size, 'note':note})
-    })
-    .then((response) =>{
-        return response.json();
-    })
-    .then((data)=> {
-        console.log('Data:',data)
-        location.reload()
-    });
-}
-// --------------
 const handlecoupon = (e)=>{
     let button = document.querySelector('.input-group-prepend');
 
@@ -393,7 +283,7 @@ const showPromotion = ()=>{
         </div>
         <div class="allcoupon">
             <div class="coupon-container">
-                <img src="{% static './assets/images/coupon10.jpg' %}" alt="coupon 105">
+                <img src="./assets/images/coupon10.jpg" alt="coupon 105">
                 <div class="coupon-information">
                     <div class="coupon-description">Giảm 15% từ 3 sản phẩm Cà phê đóng gói/Lon & nước</div>
                     <span>het han trong 2 ngay</span>
@@ -401,7 +291,7 @@ const showPromotion = ()=>{
                 </div>
             </div>
             <div class="coupon-container">
-                <img src="{% static './assets/images/coupon10.jpg' %}" alt="coupon 105">
+                <img src="./assets/images/coupon10.jpg" alt="coupon 105">
                 <div class="coupon-information">
                     <div class="coupon-description">Giảm 15% từ 3 sản phẩm Cà phê đóng gói/Lon & nước</div>
                     <span>het han trong 2 ngay</span>
@@ -409,7 +299,7 @@ const showPromotion = ()=>{
                 </div>
             </div>
             <div class="coupon-container">
-                <img src="{% static './assets/images/coupon10.jpg' %}" alt="coupon 105">
+                <img src="./assets/images/coupon10.jpg" alt="coupon 105">
                 <div class="coupon-information">
                     <div class="coupon-description">Giảm 15% từ 3 sản phẩm Cà phê đóng gói/Lon & nước</div>
                     <span>het han trong 2 ngay</span>
@@ -432,7 +322,3 @@ const showPromotion = ()=>{
             document.querySelector(".promotion_popup-container").style.display="block";
         }
 }
-
-
-
-// -------------

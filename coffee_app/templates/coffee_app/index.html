@@ -103,7 +103,7 @@
             <div class="container">
                 <nav class="header__nav">
                     <div class="header__info">
-                        <a href=" {% static '' %} "class ="header__nav-logo--link">
+                        <a href=" http://127.0.0.1:8000/ "class ="header__nav-logo--link">
                             <img src=" {% static './assets/images/Logo.jpg' %} " alt="logo" class ="header__nav-logo" >
                         </a>
                           
@@ -212,7 +212,7 @@
                                 <div class="popup-login">
                                     <img data-v-1c02541c="" onClick="closeClickLogin()" src="data:image/svg+xml;base64, PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMTUuMzg0NkwxNS4zODQ2IDBMMTYgMC42MTUzODRMMC42MTUzODQgMTZMMCAxNS4zODQ2WiIgZmlsbD0iYmxhY2siLz4KPHBhdGggZD0iTTYuNjM5NzVlLTA2IDAuNjE1Mzk1TDE1LjM4NDYgMTZMMTYgMTUuMzg0NkwwLjYxNTM5MSAxLjAzNzQ2ZS0wNUw2LjYzOTc1ZS0wNiAwLjYxNTM5NVoiIGZpbGw9ImJsYWNrIi8+Cjwvc3ZnPgo=" class="icon-close-card">
                                     <ul>
-                                        <li class="fas fa-history"> Order history</li>
+                                        <a href="{% url 'coffee_app:orderhistory' %}"><li class="fas fa-history"> Order history</li></a>
                                         <!-- test  -->
                                         <!-- <a href=" {% static './components/login/login.html' %} "><li class="fas fa-sign-in-alt"> Login</li></a> -->
                                         <!-- ===================== -->
@@ -228,8 +228,11 @@
                             </li>       
      
                              <li class="header__nav-user">
-                                <img data-v-1c02541c="" src=" {% static './assets/images/Carticon.373916c.png' %} " alt="cart" class="header__nav-cart" >
-                             </li>
+                                <a href="{% url 'coffee_app:order' %}">
+                                
+                                    <img data-v-1c02541c="" src=" {% static './assets/images/Carticon.373916c.png' %} " alt="cart" class="header__nav-cart" >
+                                </a>
+                            </li>
                     </ul>
                 </nav>
             </div>
@@ -405,11 +408,11 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="pills-hamburger2" role="tabpanel" aria-labelledby="pills-hamburger2-tab">
-                            <div class="row row-cols-1 row-cols-md-4 g-4" id="four-menu-tab">
+                            <div class="product-card--container" id="four-menu-tab">
                             </div>
                         </div>
                         <div class="tab-pane fade" id="pills-hamburger3" role="tabpanel" aria-labelledby="pills-hamburger3-tab">
-                            <div class="row row-cols-1 row-cols-md-4 g-4" id="fifth-menu-tab">
+                            <div class="product-card--container" id="fifth-menu-tab">
                             </div>
                         </div>
                     </div>
