@@ -76,7 +76,7 @@
                         <div class="cart__item-head">
                             <h6 class="cart__item-name">{{item.item.name}}</h6>
                             <div class="cart-item-price-wrap">
-                                <span class="cart-item-price">{{item.item.price}}</span>
+                                <span class="cart-item-price">{{item.get_final_price}}</span>
                                 <span class="cart-item-multiply">x</span>
                                 <span class="cart-item-qtn">{{item.quantity}}</span>
                             </div>
@@ -345,10 +345,15 @@ function getToken(name) {
                 'instructions':null,
                 'address':null,
                 'bday':null,
+                'fname':null,
+                'phone':null,
             }
 
             userFormData.phone = form.phone.value
             userFormData.fname = form.fname.value
+            
+            shippingInfo.phone = form.phone.value
+            shippingInfo.fname = form.fname.value
             shippingInfo.bday = form.bday.value
             shippingInfo.address = form.address.value
             shippingInfo.instructions = form.instructions.value
@@ -362,7 +367,7 @@ function getToken(name) {
                 },
                 body:JSON.stringify({'form':userFormData, 'shipping':shippingInfo})
             })
-            .then((response)=>response.json)
+            .then((response)=>response.json())
             .then((data)=>{
                 console.log('success',data)
                 alert('transaction completed')

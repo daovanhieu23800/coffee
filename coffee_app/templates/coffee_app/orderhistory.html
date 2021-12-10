@@ -19,8 +19,10 @@
     <link  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"  rel="stylesheet"/>
 </head>
 <body>
-    
-   
+  {% block content %}
+
+
+
     <div class="app">
         <header class="header">
             <div class="container">
@@ -94,155 +96,58 @@
     <div class="ordershistory-container ">
         <div class="container">
     <span id="horder">My order history</span>
+    
+    {% for order in orders %}    
+    <div class="orderhistory">
+        <div class="dateOrder">
+          {{order.date_ordered}} 
+        </div>
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in order.orderitem_set.all %}
+              <tr>
+                <th class="col-5">
+                    <div class="orderhistory-product">
+                    <img src="/static/assets/images/{{item.item.image}}" alt="">
+                    <div class="hoder-detail">
+                        <span>{{item.item.name}}</span>
+                        <span>{{item.item.size}}</span>
+                        <span class="hoder-note">Note: {{item.note}}</span>
+                    </div>
+                </div>
+                </th>
+                <td>{{item.quantity}}</td>
+                <td>{{item.item.price}}</td>
+                <td>{{item.get_total}}</td>
+              </tr>
 
-    <div class="orderhistory">
-        <div class="dateOrder">
-            Delivered on 27 Mar 2021
-        </div>
-        <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Product</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Price</th>
-                <th scope="col">Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th class="col-5">
-                    <div class="orderhistory-product">
-                    <img src="{% static './assets/images/coffee1.jpg' %}" alt="">
-                    <div class="hoder-detail">
-                        <span>Name</span>
-                        <span>Size: s</span>
-                        <span class="hoder-note">Note: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias fuga ullam tenetur architecto. Iste aspernatur enim minus ad explicabo esse facere sint assumenda quia</span>
-                    </div>
-                </div>
-                </th>
-                <td>1</td>
-                <td>$12</td>
-                <td>$12</td>
-              </tr>
-              <tr>
-                <th class="col-5">
-                    <div class="orderhistory-product">
-                    <img src="{% static './assets/images/coffee1.jpg' %}" alt="">
-                    <div class="hoder-detail">
-                        <span>Name</span>
-                        <span>Size: s</span>
-                        <span class="hoder-note">Note: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias fuga ullam tenetur architecto. Iste aspernatur enim minus ad explicabo esse facere sint assumenda quia</span>
-                    </div>
-                </div>
-                </th>
-                <td>1</td>
-                <td>$12</td>
-                <td>$12</td>
-              </tr><tr>
-                <th class="col-5">
-                    <div class="orderhistory-product">
-                    <img src="{% static './assets/images/coffee1.jpg' %}" alt="">
-                    <div class="hoder-detail">
-                        <span>Name</span>
-                        <span>Size: s</span>
-                        <span class="hoder-note">Note: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias fuga ullam tenetur architecto. Iste aspernatur enim minus ad explicabo esse facere sint assumenda quia</span>
-                    </div>
-                </div>
-                </th>
-                <td>1</td>
-                <td>$12</td>
-                <td>$12</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="hoder-sumary">
-              <div class="hoder-shipping">
-                <span>ten nguoi nhan</span>
-                <span>Address : Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis, natus. Harum iure maiores odio iste. Ex provident dignissimos tempora recusandae</span>
-              </div>
-              <div class="hoder-sumary--price">
-                <span>Total Summary</span>
-                <div class="sub-summary">
-                    <span>Price: $36</span>
-                    <span>shipping fee: $2</span>
-                    <span>voucher: -$10</span>
-                    
-                </div>
-                <span>Total: $30</span>
-              </div>
-          </div>
-          <div style="clear:both;"></div>
-    </div>
 
-    <div class="orderhistory">
-        <div class="dateOrder">
-            Delivered on 27 Mar 2021
-        </div>
-        <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Product</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Price</th>
-                <th scope="col">Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th class="col-5">
-                    <div class="orderhistory-product">
-                    <img src="./assets/images/coffee1.jpg" alt="">
-                    <div class="hoder-detail">
-                        <span>Name</span>
-                        <span>Size: s</span>
-                        <span class="hoder-note">Note: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias fuga ullam tenetur architecto. Iste aspernatur enim minus ad explicabo esse facere sint assumenda quia</span>
-                    </div>
-                </div>
-                </th>
-                <td>1</td>
-                <td>$12</td>
-                <td>$12</td>
-              </tr>
-              <tr>
-                <th class="col-5">
-                    <div class="orderhistory-product">
-                    <img src="./assets/images/coffee1.jpg" alt="">
-                    <div class="hoder-detail">
-                        <span>Name</span>
-                        <span>Size: s</span>
-                        <span class="hoder-note">Note: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias fuga ullam tenetur architecto. Iste aspernatur enim minus ad explicabo esse facere sint assumenda quia</span>
-                    </div>
-                </div>
-                </th>
-                <td>1</td>
-                <td>$12</td>
-                <td>$12</td>
-              </tr><tr>
-                <th class="col-5">
-                    <div class="orderhistory-product">
-                    <img src="./assets/images/coffee1.jpg" alt="">
-                    <div class="hoder-detail">
-                        <span>Name</span>
-                        <span>Size: s</span>
-                        <span class="hoder-note">Note: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias fuga ullam tenetur architecto. Iste aspernatur enim minus ad explicabo esse facere sint assumenda quia</span>
-                    </div>
-                </div>
-                </th>
-                <td>1</td>
-                <td>$12</td>
-                <td>$12</td>
-              </tr>
+              {%endfor%}
             </tbody>
           </table>
           <div class="hoder-sumary">
+
+
+            {% for address in order.shippingaddress_set.all %}
               <div class="hoder-shipping">
-                <span>ten nguoi nhan</span>
-                <span>Address : Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis, natus. Harum iure maiores odio iste. Ex provident dignissimos tempora recusandae</span>
+                <span>note:{{address.instructions}}</span>
+                <span>Address: {{address.address}}</span>
               </div>
+            {%endfor%}
+
+
               <div class="hoder-sumary--price">
                 <span>Total Summary</span>
                 <div class="sub-summary">
-                    <span>Price: $36</span>
+                    <span>Price: ${{order.get_cart_total}}</span>
                     <span>shipping fee: $2</span>
                     <span>voucher: -$10</span>
                     
@@ -252,86 +157,10 @@
           </div>
           <div style="clear:both;"></div>
     </div>
-    <div class="orderhistory">
-        <div class="dateOrder">
-            Delivered on 27 Mar 2021
-        </div>
-        <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">Product</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Price</th>
-                <th scope="col">Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th class="col-5">
-                    <div class="orderhistory-product">
-                    <img src="./assets/images/coffee1.jpg" alt="">
-                    <div class="hoder-detail">
-                        <span>Name</span>
-                        <span>Size: s</span>
-                        <span class="hoder-note">Note: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias fuga ullam tenetur architecto. Iste aspernatur enim minus ad explicabo esse facere sint assumenda quia</span>
-                    </div>
-                </div>
-                </th>
-                <td>1</td>
-                <td>$12</td>
-                <td>$12</td>
-              </tr>
-              <tr>
-                <th class="col-5">
-                    <div class="orderhistory-product">
-                    <img src="./assets/images/coffee1.jpg" alt="">
-                    <div class="hoder-detail">
-                        <span>Name</span>
-                        <span>Size: s</span>
-                        <span class="hoder-note">Note: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias fuga ullam tenetur architecto. Iste aspernatur enim minus ad explicabo esse facere sint assumenda quia</span>
-                    </div>
-                </div>
-                </th>
-                <td>1</td>
-                <td>$12</td>
-                <td>$12</td>
-              </tr><tr>
-                <th class="col-5">
-                    <div class="orderhistory-product">
-                    <img src="./assets/images/coffee1.jpg" alt="">
-                    <div class="hoder-detail">
-                        <span>Name</span>
-                        <span>Size: s</span>
-                        <span class="hoder-note">Note: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias fuga ullam tenetur architecto. Iste aspernatur enim minus ad explicabo esse facere sint assumenda quia</span>
-                    </div>
-                </div>
-                </th>
-                <td>1</td>
-                <td>$12</td>
-                <td>$12</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="hoder-sumary">
-              <div class="hoder-shipping">
-                <span>ten nguoi nhan</span>
-                <span>Address : Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis, natus. Harum iure maiores odio iste. Ex provident dignissimos tempora recusandae</span>
-              </div>
-              <div class="hoder-sumary--price">
-                <span>Total Summary</span>
-                <div class="sub-summary">
-                    <span>Price: $36</span>
-                    <span>shipping fee: $2</span>
-                    <span>voucher: -$10</span>
-                    
-                </div>
-                <span>Total: $30</span>
-              </div>
-          </div>
-          <div style="clear:both;"></div>
-    </div>
-    </div>
-                
+    {% endfor %}
+
+    {% endblock content %}
+
     </div>
         
        

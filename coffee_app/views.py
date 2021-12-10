@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Item, News, Order, OrderItem, ShippingAddress
+from .models import Customer, Item, News, Order, OrderItem, ShippingAddress
 from django.core import serializers
 from django.http import HttpResponse
 from .serializer import ItemSerializers
@@ -31,7 +31,9 @@ def news(request):
 
 def orderhistory(request):
     """The home page """
-    return render(request, 'coffee_app/orderhistory.html')
+    orders = Order.objects.filter(customer=request.user.customer).order_by('date_ordered')
+    context = {'orders':orders}
+    return render(request, 'coffee_app/orderhistory.html',context)
     
 def updateItem(request):
     data = json.loads(request.body)
@@ -80,6 +82,10 @@ def processOrder(request):
     customer = customer,
     order = order,
     address = data['shipping']['address'],
+    phone = data['shipping']['phone'],
+    fname = data['shipping']['fname'],
+    instructions = data['shipping']['instructions'],
+    date_add = data['shipping']['bday']
     )
     return JsonResponse('payment complete',safe=False)
 

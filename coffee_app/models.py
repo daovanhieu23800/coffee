@@ -69,6 +69,15 @@ class OrderItem(models.Model):
             plus = 10000
         total = self.item.price * self.quantity + plus*self.quantity
         return total
+    @property
+    def get_final_price(self):
+        plus = 0
+        if self.size == 'M':
+            plus = 5000
+        elif self.size == 'L':
+            plus = 10000
+        total = self.item.price + plus
+        return total
 
 class ShippingAddress(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
@@ -76,8 +85,11 @@ class ShippingAddress(models.Model):
     city = models.CharField(max_length=100, null=True)
     zipcode = models.CharField(max_length=100, null=True)
     address = models.CharField(max_length=100, null=True)
+    fname = models.CharField(max_length=100, null=True)
+    phone = models.CharField(max_length=100, null=True)
     date_add = models.DateTimeField(auto_now_add=True)
-   
+    instructions = models.CharField(max_length=100, null=True)
+
     def __str__(self):
         return self.address
 
