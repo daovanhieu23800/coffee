@@ -25,7 +25,7 @@
             <div class="container">
                 <nav class="header__nav">
                     <div class="header__info">
-                        <a href="http://127.0.0.1:8000/"class ="header__nav-logo--link">
+                        <a href="{% url 'coffee_app:index' %}"class ="header__nav-logo--link">
                             <img src=" {% static './assets/images/Logo.jpg' %} " alt="logo" class ="header__nav-logo" >
                         </a>
                           
@@ -41,7 +41,7 @@
 
                         <ul class="header__nav-list ">
                             <li class="header__nav-item">
-                                <a href="http://127.0.0.1:8000/" class="header__nav-item--link">HOME</a>
+                                <a href="{% url 'coffee_app:index' %}" class="header__nav-item--link">HOME</a>
                             </li>
      
                             <li class="header__nav-item">
@@ -205,7 +205,7 @@
                             <div class="site__content">
                                 <ul class="site__list">
                                     <li class="site__item">
-                                        <a href="http://127.0.0.1:8000/" class="site__link">HOME</a>
+                                        <a href="{% url 'coffee_app:index' %}" class="site__link">HOME</a>
                                     </li>
                                     <li class="site__item">
                                         <a href="{% url 'coffee_app:order' %}" class="site__link">ORDER</a>
