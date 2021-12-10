@@ -116,7 +116,7 @@ const  handleMenuTab4 = async ()=>{
     a.innerHTML = html;          
 };
 const  handleNews = async ()=>{
-    const response = await fetch('coffee-ewebsite.herokuapp.com/getnews/');
+    const response = await fetch('https://coffee-ewebsite.herokuapp.com/getnews/');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>6)
