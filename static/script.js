@@ -1,5 +1,5 @@
 const  handleMenuTab1 = async ()=>{
-    const response = await fetch('http://127.0.0.1:8000/items/favourite/');
+    const response = await fetch('https://coffee-ewebsite.herokuapp.com/items/favourite/');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>12)
@@ -31,7 +31,7 @@ const  handleMenuTab1 = async ()=>{
 };
 
 const  handleMenuTab2 = async ()=>{
-    const response = await fetch('http://127.0.0.1:8000/items/coffee/');
+    const response = await fetch('https://coffee-ewebsite.herokuapp.com/items/coffee/');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>12)
@@ -60,7 +60,7 @@ const  handleMenuTab2 = async ()=>{
 };
 
 const  handleMenuTab3 = async ()=>{
-    const response = await fetch('http://127.0.0.1:8000/items/tea/');
+    const response = await fetch('https://coffee-ewebsite.herokuapp.com/items/tea/');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>12)
@@ -88,7 +88,7 @@ const  handleMenuTab3 = async ()=>{
     a.innerHTML = html;          
 };
 const  handleMenuTab4 = async ()=>{
-    const response = await fetch('http://127.0.0.1:8000/items/ice/');
+    const response = await fetch('https://coffee-ewebsite.herokuapp.com/items/ice/');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>12)
