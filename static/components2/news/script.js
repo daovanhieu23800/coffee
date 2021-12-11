@@ -1,6 +1,6 @@
 
 const  handleNews = async ()=>{
-    const response = await fetch('http://https://127.0.0.1:8000/getnews/');
+    const response = await fetch('/getnews/');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>6)

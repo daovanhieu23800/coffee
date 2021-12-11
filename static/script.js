@@ -1,5 +1,5 @@
 const  handleMenuTab1 = async ()=>{
-    const response = await fetch('https://127.0.0.1:8000/items/favourite/');
+    const response = await fetch('/items/favourite/');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>12)
@@ -31,7 +31,7 @@ const  handleMenuTab1 = async ()=>{
 };
 
 const  handleMenuTab2 = async ()=>{
-    const response = await fetch('https://127.0.0.1:8000/items/coffee/');
+    const response = await fetch('/items/coffee/');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>12)
@@ -60,7 +60,7 @@ const  handleMenuTab2 = async ()=>{
 };
 
 const  handleMenuTab3 = async ()=>{
-    const response = await fetch('https://127.0.0.1:8000/items/tea/');
+    const response = await fetch('/items/tea/');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>12)
@@ -88,7 +88,7 @@ const  handleMenuTab3 = async ()=>{
     a.innerHTML = html;          
 };
 const  handleMenuTab4 = async ()=>{
-    const response = await fetch('https://127.0.0.1:8000/items/ice/');
+    const response = await fetch('/items/ice/');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>12)
@@ -116,7 +116,7 @@ const  handleMenuTab4 = async ()=>{
     a.innerHTML = html;          
 };
 const  handleNews = async ()=>{
-    const response = await fetch('https://127.0.0.1:8000/getnews/');
+    const response = await fetch('/getnews/');
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>6)
