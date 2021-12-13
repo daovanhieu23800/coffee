@@ -192,9 +192,11 @@ const decreaseQuantity = (a)=>{
             break;
         }
     }
-    if(size == "m")
+    console.log(size);
+
+    if(size ==  "M")
         plus = 5000;
-    if(size == "l")
+    if(size ==  "L")
         plus = 10000;
 
     price = parseFloat(document.querySelector(".price").innerText.slice(1,));
@@ -203,37 +205,40 @@ const decreaseQuantity = (a)=>{
 }
 
 const increaseQuantity = (a)=>{
-    // console.log("a");
-    a.previousElementSibling.innerText = parseInt(a.previousElementSibling.innerText) + 1;
-    a.previousElementSibling.previousElementSibling.disabled=false;
-    a.previousElementSibling.previousElementSibling.classList.remove("disabled_button");
-    let size = "";
-    let plus = 0;
-    let price = 0;
-    var radios = document.getElementsByName("msize");
-    var found = 1;
-    for (var i = 0; i < radios.length; i++) {       
-        if (radios[i].checked) {
-            size = radios[i].value;
-            found = 0;
-            break;
-        }
-    }
-    if(size == "m")
+     console.log("a");
+     a.previousElementSibling.innerText = parseInt(a.previousElementSibling.innerText) + 1;
+     a.previousElementSibling.previousElementSibling.disabled=false;
+     a.previousElementSibling.previousElementSibling.classList.remove("disabled_button");
+     let size = "";
+     let plus = 0;
+     let price = 0;
+     var radios = document.getElementsByName("msize");
+     var found = 1;
+     for (var i = 0; i < radios.length; i++) {       
+         if (radios[i].checked) {
+             size = radios[i].value;
+         found = 0;
+             break;
+         }
+     }
+     console.log(size);
+
+     if(size ==  "M")
         plus = 5000;
-    if(size == "l")
+     if(size == "L")
         plus = 10000;
 
-    price = parseFloat(document.querySelector(".price").innerText.slice(1,));
-    console.log(plus, " ", price);
-    handlesize(plus,price);
+     price = parseFloat(document.querySelector(".price").innerText.slice(1,));
+     console.log(plus, " ", price);
+     handlesize(plus,price);
+    
 
 }
 
 const handlesize = (size, price) =>{
     let addbutton = document.querySelector("#totalPrice");
     let quantity = document.querySelector("#quantityofitem");
-    addbutton.innerText = "$" + (price+size) * parseInt(quantity.innerText);
+    addbutton.innerText = "$" + (price+size) * parseInt(quantity.innerText) ;
 }
 
 const cancelCardPopup = () =>{
@@ -318,6 +323,15 @@ const addtocard = (id,name,price) =>{
             break;
         }
     }
+    // -------------
+
+    if(size == "m")
+        plus = 1;
+    if(size == "l")
+        plus = 2;
+
+        console.log(size);
+    // -------------
     let note = document.getElementById('note').value;
     console.log(note);
     if (user === 'AnonymousUser'){
