@@ -30,21 +30,43 @@ class Item( models.Model):#akak product
     def __str__(self):
         return self.name
 
+###promotion
+class Promotions(models.Model):
+    id = models.AutoField(primary_key=True)
+    avatar = models.ImageField(null=False)
+    content = models.CharField(max_length=80, default ="Discount 90%")
+    expired = models.CharField(max_length=30, default="het han trong 2 ngay")
+    discount = models.FloatField(default=0.1)
 
 class Order(models.Model):
     date_ordered = models.DateTimeField(auto_now_add=True)
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
     transaction_ID = models.CharField(max_length=100, null=True)
     complete = models.BooleanField(default=False, null=True)
-   
+    promotion = models.ForeignKey(Promotions,null=True,blank=True,on_delete=models.SET_NULL)
+
     def __str__(self):
         return str(self.id)
     @property
-    def get_cart_total(self):
+    def get_cart_total_before_promotion(self):
         orderitems = self.orderitem_set.all()
         total=0
         for item in orderitems:
             total += item.get_total
+        ###check promotion
+        return total
+    @property
+    def get_cart_total(self):
+        orderitems = self.orderitem_set.all()
+        total=0
+        promo = self.promotion
+        for item in orderitems:
+            total += item.get_total
+        ###check promotion
+        if promo is None:
+            print("null")
+        else:
+            total *= (1-promo.discount)
         return total
     @property
     def get_cart_quantiy(self):
@@ -103,3 +125,8 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
+
+

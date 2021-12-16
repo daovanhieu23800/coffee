@@ -71,7 +71,7 @@
             <ul class="cart__list">
                 {% for item in items %}
                 <li class="cart__item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" alt="img-header" class="header__cart-img">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" onclick="removeItem('{{item.id}}')" alt="img-header" class="header__cart-img">
                     <div class="cart_item-info">
                         <div class="cart__item-head">
                             <h6 class="cart__item-name">{{item.item.name}}</h6>
@@ -96,210 +96,26 @@
                     </div>
                 </li>
                 {% endfor %}
-                <!-- <li class="cart__item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" alt="img-header" class="header__cart-img">
-                    <div class="cart_item-info">
-                        <div class="cart__item-head">
-                            <h6 class="cart__item-name">Cafe sua da </h6>
-                            <div class="cart-item-price-wrap">
-                                <span class="cart-item-price">65.000đ</span>
-                                <span class="cart-item-multiply">x</span>
-                                <span class="cart-item-qtn">2</span>
-                            </div>
-                        </div>
-
-                        <div class="cart-item-body">
-                            <span class="cart-item-note">
-                                Note: 50% sugar
-                            </span>
-                            <span class="cart-item-description">
-                                Size: M
-                            </span>
-                            
-                        </div>
-                    </div>
-                </li>
-                <li class="cart__item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" alt="img-header" class="header__cart-img">
-                    <div class="cart_item-info">
-                        <div class="cart__item-head">
-                            <h6 class="cart__item-name">Cafe sua da </h6>
-                            <div class="cart-item-price-wrap">
-                                <span class="cart-item-price">65.000đ</span>
-                                <span class="cart-item-multiply">x</span>
-                                <span class="cart-item-qtn">2</span>
-                            </div>
-                        </div>
-
-                        <div class="cart-item-body">
-                            <span class="cart-item-note">
-                                Note: 50% sugar
-                            </span>
-                            <span class="cart-item-description">
-                                Size: M
-                            </span>
-                            
-                        </div>
-                    </div>
-                </li>
-                <li class="cart__item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" alt="img-header" class="header__cart-img">
-                    <div class="cart_item-info">
-                        <div class="cart__item-head">
-                            <h6 class="cart__item-name">Cafe sua da </h6>
-                            <div class="cart-item-price-wrap">
-                                <span class="cart-item-price">65.000đ</span>
-                                <span class="cart-item-multiply">x</span>
-                                <span class="cart-item-qtn">2</span>
-                            </div>
-                        </div>
-
-                        <div class="cart-item-body">
-                            <span class="cart-item-note">
-                                Note: 50% sugar
-                            </span>
-                            <span class="cart-item-description">
-                                Size: M
-                            </span>
-                            
-                        </div>
-                    </div>
-                </li>
-                <li class="cart__item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" alt="img-header" class="header__cart-img">
-                    <div class="cart_item-info">
-                        <div class="cart__item-head">
-                            <h6 class="cart__item-name">Cafe sua da </h6>
-                            <div class="cart-item-price-wrap">
-                                <span class="cart-item-price">65.000đ</span>
-                                <span class="cart-item-multiply">x</span>
-                                <span class="cart-item-qtn">2</span>
-                            </div>
-                        </div>
-
-                        <div class="cart-item-body">
-                            <span class="cart-item-note">
-                                Note: 50% sugar
-                            </span>
-                            <span class="cart-item-description">
-                                Size: M
-                            </span>
-                            
-                        </div>
-                    </div>
-                </li>
-                <li class="cart__item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" alt="img-header" class="header__cart-img">
-                    <div class="cart_item-info">
-                        <div class="cart__item-head">
-                            <h6 class="cart__item-name">Cafe sua da </h6>
-                            <div class="cart-item-price-wrap">
-                                <span class="cart-item-price">65.000đ</span>
-                                <span class="cart-item-multiply">x</span>
-                                <span class="cart-item-qtn">2</span>
-                            </div>
-                        </div>
-
-                        <div class="cart-item-body">
-                            <span class="cart-item-note">
-                                Note: 50% sugar
-                            </span>
-                            <span class="cart-item-description">
-                                Size: M
-                            </span>
-                            
-                        </div>
-                    </div>
-                </li>
-                <li class="cart__item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" alt="img-header" class="header__cart-img">
-                    <div class="cart_item-info">
-                        <div class="cart__item-head">
-                            <h6 class="cart__item-name">Cafe sua da </h6>
-                            <div class="cart-item-price-wrap">
-                                <span class="cart-item-price">65.000đ</span>
-                                <span class="cart-item-multiply">x</span>
-                                <span class="cart-item-qtn">2</span>
-                            </div>
-                        </div>
-
-                        <div class="cart-item-body">
-                            <span class="cart-item-note">
-                                Note: 50% sugar
-                            </span>
-                            <span class="cart-item-description">
-                                Size: M
-                            </span>
-                            
-                        </div>
-                    </div>
-                </li>
-                <li class="cart__item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" alt="img-header" class="header__cart-img">
-                    <div class="cart_item-info">
-                        <div class="cart__item-head">
-                            <h6 class="cart__item-name">Cafe sua da </h6>
-                            <div class="cart-item-price-wrap">
-                                <span class="cart-item-price">65.000đ</span>
-                                <span class="cart-item-multiply">x</span>
-                                <span class="cart-item-qtn">2</span>
-                            </div>
-                        </div>
-
-                        <div class="cart-item-body">
-                            <span class="cart-item-note">
-                                Note: 50% sugar
-                            </span>
-                            <span class="cart-item-description">
-                                Size: M
-                            </span>
-                            
-                        </div>
-                    </div>
-                </li>
-                <li class="cart__item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Multiplication_Sign.svg/1024px-Multiplication_Sign.svg.png" alt="img-header" class="header__cart-img">
-                    <div class="cart_item-info">
-                        <div class="cart__item-head">
-                            <h6 class="cart__item-name">Cafe sua da </h6>
-                            <div class="cart-item-price-wrap">
-                                <span class="cart-item-price">65.000đ</span>
-                                <span class="cart-item-multiply">x</span>
-                                <span class="cart-item-qtn">2</span>
-                            </div>
-                        </div>
-
-                        <div class="cart-item-body">
-                            <span class="cart-item-note">
-                                Note: 50% sugar
-                            </span>
-                            <span class="cart-item-description">
-                                Size: M
-                            </span>
-                            
-                        </div>
-                    </div>
-                </li>
             </ul>
-             -->
+                
             <ul class="calculate_price">
                 <li class="price">
                     <div class="price__wrap">
                         <h6 class="price__header">Price</h6>
                         <div class="price__without-promotion-wrap">
-                            <span class="price__without-promotion">${{order.get_cart_total}}</span>
+                            <span class="price__without-promotion">{{order.get_cart_total_before_promotion}}VND</span>
                         </div>
                     </div>
                 </li>
                 <li class="code__promotion">
-                    <a href="" class="code__promotion-link">Promotion code</a>
+                    <a href="" class="code__promotion-link">Promotion code: {{promotion}}</a>
                 </li>
 
                 <li class="total__price">
                     <div class="total__price__wrap">
                         <span class="total__price__header">Total Price</span>
                         <div class="total__price__with-promotion-wrap">
-                            <span class="total__price__with-promotion"></span>
+                            <span class="total__price__with-promotion">{{order.get_cart_total}}VND</span>
                         </div>
                     </div>
                 </li>
@@ -374,7 +190,27 @@ function getToken(name) {
                 window.location.href = "{%url 'coffee_app:index'%}"
             })
         }
+        ////remove item
 
+    function removeItem(id){
+            var url='/remove_item/'
+            console.log(id)
+            fetch(url,{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json',
+                    'X-CSRFToken':csrftoken,
+                },
+                body:JSON.stringify({'itemIdtoremove':id})
+            })
+            .then((response) =>{
+                return response.json();
+            })
+            .then((data)=> {
+                console.log('Data:',data)
+                location.reload()
+            });
+    }
 
 
     </script>

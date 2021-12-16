@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Customer, Item, News, Order, OrderItem, ShippingAddress
+from .models import Customer, Item, News, Order, OrderItem, Promotions, ShippingAddress
 from django.core import serializers
 from django.http import HttpResponse
 from .serializer import ItemSerializers
@@ -21,13 +21,23 @@ def order(request):
         items = order.orderitem_set.all()
     else:
         items = []
-        order = {'get_cart_total':0, 'get_cart_quantity':0}
-    context = {'items': items, 'order':order}
+        order = {'get_cart_total':0, 'get_cart_quantity':0,'get_cart_total_before_promotion':0}
+    if order.promotion is None:
+        context = {'items': items, 'order':order}
+        #print("abc")
+    else:
+        context = {'items': items, 'order':order, 'promotion':order.promotion.content}
     return render(request, 'coffee_app/order.html', context)
 
 def news(request):
     """The home page """
     return render(request, 'coffee_app/news.html')
+
+def news_detail(request,id):
+    """The home page """
+    news = News.objects.get(id=id)
+    context = {'news':news}
+    return render(request, 'coffee_app/newsdetail.html',context)
 
 def orderhistory(request):
     """The home page """
@@ -70,7 +80,7 @@ def processOrder(request):
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        total = int(data['form']['total'])
+        total = float(data['form']['total'])
         order.transaction_ID = transaction_id
     else:
         print("not logged in")
@@ -88,7 +98,32 @@ def processOrder(request):
     date_add = data['shipping']['bday']
     )
     return JsonResponse('payment complete',safe=False)
+####remove item
+def removeItem(request):
+    data = json.loads(request.body)
+    itemId = data['itemIdtoremove']
+    orderItem, created = OrderItem.objects.get_or_create(id = itemId)
+    orderItem.delete()
+    return JsonResponse('remove successfully',safe=False)
 
+###promotion
+def update_promotion(request):
+    data = json.loads(request.body)
+    proId = data['promotionId']
+    print(proId)
+    if request.user.is_authenticated:
+        promotion = Promotions.objects.get(id = proId)
+        customer = request.user.customer
+        thisorder, created = Order.objects.get_or_create(customer=customer, complete=False)
+        thisorder.promotion = promotion
+        
+        thisorder.get_cart_total_before_promotion
+        thisorder.get_cart_total
+        thisorder.save()
+    else:
+        print("not logging")
+    
+    return JsonResponse('promotion was added',safe=False)
 
 # def items(request):
 #     items = Item.objects.order_by('price')
@@ -148,3 +183,12 @@ def get_news(request):
     data = json.dumps(items_list)
     return HttpResponse(data, content_type="application/json")
 
+###Promotion
+
+def get_promotion(request):
+    items = Promotions.objects.all().values()
+
+    items_list = list(items)
+
+    data = json.dumps(items_list)
+    return HttpResponse(data, content_type="application/json")

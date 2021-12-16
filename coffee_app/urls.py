@@ -5,9 +5,11 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('items/', views.items, name='items'),
     path('getnews/',views.get_news, name="news"),
+    path('getpromotions/',views.get_promotion, name="promotion"),
     path('', views.items, name='index'),
     path('admin/',admin.site.urls),
     path('news/',views.news, name = "news"),
+    path('newsdetail/<int:id>/',views.news_detail, name = "newsdetail"),
     path('orderhistory/',views.orderhistory, name = "orderhistory"),
     path('items/favourite/', views.items_detail_1, name="type1"),
     path('items/coffee/', views.items_detail_2, name="type2"),
@@ -16,6 +18,8 @@ urlpatterns = [
     path('items/snack/', views.items_detail_5, name="type5"),
     path('order/', views.order, name='order'),
     path('update_item/', views.updateItem, name='update_item'),
+    path('remove_item/', views.removeItem, name='remove_item'),
+    path('update_promotion/', views.update_promotion, name='update_promotion'),
     path('process_order/', views.processOrder, name='process_order'),
 
 ]

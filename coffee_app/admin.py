@@ -1,4 +1,5 @@
 from django.contrib import admin
+from coffee_app.models import Promotions
 # Register your models here.
 from coffee_app.models import Item, OrderItem, ShippingAddress,News
 from coffee_app.models import Customer
@@ -10,3 +11,4 @@ admin.site.register(Order)
 admin.site.register(ShippingAddress)
 admin.site.register(OrderItem)
 admin.site.register(News)
+admin.site.register(Promotions)

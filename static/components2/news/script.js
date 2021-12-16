@@ -15,7 +15,7 @@ const  handleNews = async ()=>{
                             <p>${items.content}</p>
                             <div class="more-button">
                                 <button>
-                                    <a href="#">More</a>
+                                    <a href="http://127.0.0.1:8000/newsdetail/${items.id}">More</a>
                                 </button>
                             </div>
                         </div>
@@ -110,4 +110,17 @@ const showPromotion = ()=>{
 
 const cancelPromotionPopup = () =>{
     document.querySelector('.promotion_popup-container').style.display = 'none';
+}
+
+const clickLogin = ()=>{
+    let loginbox = document.querySelector('.popup-login');
+    
+    loginbox.style.display = loginbox.style.display == "block" ? "none":"block";
+}
+
+
+const closeClickLogin = ()=>{
+    let loginbox = document.querySelector('.popup-login');
+    
+    loginbox.style.display = "none";
 }

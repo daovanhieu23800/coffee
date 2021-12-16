@@ -131,7 +131,7 @@ const  handleNews = async ()=>{
                             <p>${items.content}</p>
                             <div class="more-button">
                                 <button>
-                                    <a href="#">More</a>
+                                    <a href="http://127.0.0.1:8000/newsdetail/${items.id}/">More</a>
                                 </button>
                             </div>
                         </div>
@@ -324,12 +324,10 @@ const addtocard = (id,name,price) =>{
         }
     }
     // -------------
-
     if(size == "m")
         plus = 1;
     if(size == "l")
         plus = 2;
-
         console.log(size);
     // -------------
     let note = document.getElementById('note').value;
@@ -342,8 +340,6 @@ const addtocard = (id,name,price) =>{
         updateUserOrder(id,name,price,action,quantity,size,note);
 
     }
-
-    
 }
 function updateUserOrder(id,name,price,action,quantity,size,note){
     console.log('user is logged in,sending data')
@@ -367,6 +363,38 @@ function updateUserOrder(id,name,price,action,quantity,size,note){
     });
 }
 // --------------
+const addpromotion = (id) =>{
+    var action = 'add';
+    console.log(id);
+    if (user === 'AnonymousUser'){
+        console.log('not logged in')
+
+    }
+    else{
+        updateintoOrder(id);
+
+    }
+}
+function updateintoOrder(id){
+    console.log('user is logged in,sending data')
+
+    var url='/update_promotion/'
+    fetch(url,{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json',
+            'X-CSRFToken':csrftoken,
+        },
+        body:JSON.stringify({'promotionId':id})
+    })
+    .then((response) =>{
+        return response.json();
+    })
+    .then((data)=> {
+        console.log('Data:',data)
+        location.reload()
+    });
+}
 const handlecoupon = (e)=>{
     let button = document.querySelector('.input-group-prepend');
 
@@ -376,6 +404,29 @@ const handlecoupon = (e)=>{
         button.classList.add("disabled_button");
     }
 }
+const  handlePromotion = async ()=>{
+    const response = await fetch('/getpromotions/');
+    const myJson = await response.json();
+    const html = myJson.map((items) =>{
+         console.log(myJson);
+    return `
+    <div class="coupon-container">
+        <img src="/static/assets/images/${items.avatar}" alt="coupon 105">
+        <div class="coupon-information">
+            <div class="coupon-description">${items.content}</div>
+            <span>${items.expired}</span>
+            <button data-action="add" onclick="addpromotion(${items.id})" class="addpromotion">
+                Apply
+            </button>
+        </div>
+    </div>
+    `;
+    }).join("");
+    ///console.log(html);
+        let a = document.querySelector(".allcoupon");
+        console.log(a);
+        a.innerHTML = html;
+};
 
 const showPromotion = ()=>{
     if(document.querySelector(".promotion_popup-container")==null){
@@ -405,48 +456,15 @@ const showPromotion = ()=>{
         <div class="title_choices">
             Sap het han
         </div>
-        <div class="allcoupon">
-            <div class="coupon-container">
-                <img src="{% static './assets/images/coupon10.jpg' %}" alt="coupon 105">
-                <div class="coupon-information">
-                    <div class="coupon-description">Giảm 15% từ 3 sản phẩm Cà phê đóng gói/Lon & nước</div>
-                    <span>het han trong 2 ngay</span>
-                    <button>Apply</button>
-                </div>
-            </div>
-            <div class="coupon-container">
-                <img src="{% static './assets/images/coupon10.jpg' %}" alt="coupon 105">
-                <div class="coupon-information">
-                    <div class="coupon-description">Giảm 15% từ 3 sản phẩm Cà phê đóng gói/Lon & nước</div>
-                    <span>het han trong 2 ngay</span>
-                    <button>Apply</button>
-                </div>
-            </div>
-            <div class="coupon-container">
-                <img src="{% static './assets/images/coupon10.jpg' %}" alt="coupon 105">
-                <div class="coupon-information">
-                    <div class="coupon-description">Giảm 15% từ 3 sản phẩm Cà phê đóng gói/Lon & nước</div>
-                    <span>het han trong 2 ngay</span>
-                    <button>Apply</button>
-                </div>
-            </div>
-            <div class="coupon-container">
-                <img src="./assets/images/coupon10.jpg" alt="coupon 105">
-                <div class="coupon-information">
-                    <div class="coupon-description">Giảm 15% từ 3 sản phẩm Cà phê đóng gói/Lon & nước</div>
-                    <span>het han trong 2 ngay</span>
-                    <button>Apply</button>
-                </div>
-            </div>
+        <div class="allcoupon" id ="getallcoupon">
         </div>
         
     </div>
-</div>`+ document.querySelector("body").innerHTML;}
+</div>`+ document.querySelector("body").innerHTML;
+        handlePromotion();}
         else {
             document.querySelector(".promotion_popup-container").style.display="block";
         }
 }
-
-
 
 // -------------

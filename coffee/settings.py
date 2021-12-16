@@ -41,8 +41,7 @@ INSTALLED_APPS = [
     'coffee_app',
     'users',
     'corsheaders',
-
-    
+    'rest_framework',
 ]
 CORS_ORIGIN_ALLOW_ALL = True
 
