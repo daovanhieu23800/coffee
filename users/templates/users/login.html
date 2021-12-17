@@ -22,7 +22,7 @@
 			<h2>Don't have an account?</h2>
 			<p>Creare an account</p>
 			<label id="label-login" for="log-login-show">
-			 <a href="{% url 'users:register' %}">register</a> </label>
+			 <a href="{% url 'users:register' %}" style="color: white" >register</a> </label>
 
 
 			<input type="radio" name="active-log-panel" id="log-login-show">
@@ -37,7 +37,8 @@
                 <form method="post" action="{% url 'users:login' %}">
                 {%csrf_token%}
                 {{ form.as_p }}
-                    <button name="submit" value="Log in">login</button>
+                    <!-- <button name="submit" value="Login">login</button> -->
+                    <input type="submit" type="button" value="Login">
 				    <input type="hidden" name="next" value="{% url 'coffee_app:index' %}" />
                 </form>
                 <!-- fix -->

@@ -21,7 +21,7 @@
 			<h2>Have an account?</h2>
 			
 			<label id="label-register" for="log-reg-show">
-                 <a href="{% url 'users:login' %}">login now</a>
+                 <a href="{% url 'users:login' %}" style="color:white">login now</a>
 
                 
         </label>
@@ -36,7 +36,8 @@
                 <form method="post" action="{% url 'users:register' %}"> 
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button name="submit">register</button>
+                    <!-- <button name="submit">register</button> -->
+                    <input type="submit" type="button" value="Register">
                     <input type="hidden" name="next" value="{% url 'coffee_app:index' %}" /> </form>
                 <!-- fix -->
     			</div>

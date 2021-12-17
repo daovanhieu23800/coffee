@@ -101,14 +101,14 @@
             <ul class="calculate_price">
                 <li class="price">
                     <div class="price__wrap">
-                        <h6 class="price__header">Price</h6>
-                        <div class="price__without-promotion-wrap">
+                        <h6 class="price__header">Price : {{order.get_cart_total_before_promotion}}VND</h6>
+                        <!-- <div class="price__without-promotion-wrap">
                             <span class="price__without-promotion">{{order.get_cart_total_before_promotion}}VND</span>
-                        </div>
+                        </div> -->
                     </div>
                 </li>
                 <li class="code__promotion">
-                    <a href="" class="code__promotion-link">Promotion code: {{promotion}}</a>
+                    <a href="" class="code__promotion-link">Promotion code : {{promotion}}</a>
                 </li>
 
                 <li class="total__price">

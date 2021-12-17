@@ -106,6 +106,7 @@
             <thead>
               <tr>
                 <th scope="col">Product</th>
+                <th scope="col">Size</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Price</th>
                 <th scope="col">Total</th>
@@ -124,6 +125,7 @@
                     </div>
                 </div>
                 </th>
+                <td>{{item.size}}</td>
                 <td>{{item.quantity}}</td>
                 <td>{{item.item.price}}</td>
                 <td>{{item.get_total}}</td>
@@ -138,7 +140,8 @@
 
             {% for address in order.shippingaddress_set.all %}
               <div class="hoder-shipping">
-                <span>note:{{address.instructions}}</span>
+                <span>Name: {{address.fname}}</span>
+                <span>Note: {{address.instructions}}</span>
                 <span>Address: {{address.address}}</span>
               </div>
             {%endfor%}
@@ -147,12 +150,10 @@
               <div class="hoder-sumary--price">
                 <span>Total Summary</span>
                 <div class="sub-summary">
-                    <span>Price: ${{order.get_cart_total}}</span>
-                    <span>shipping fee: $2</span>
-                    <span>voucher: -$10</span>
-                    
+                    <span>Price: ${{order.get_cart_total_before_promotion}}</span>
+                    <span>voucher: {{order.promotion.content}}</span>                    
                 </div>
-                <span>Total: $30</span>
+                <span>Total: {{order.get_cart_total}}VND</span>
               </div>
           </div>
           <div style="clear:both;"></div>
