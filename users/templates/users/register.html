@@ -37,7 +37,7 @@
                     {% csrf_token %}
                     {{ form.as_p }}
                     <!-- <button name="submit">register</button> -->
-                    <input type="submit" type="button" value="Register">
+                    <input type="submit" type="button" value="Register" style="background-color: #fb8d17">
                     <input type="hidden" name="next" value="{% url 'coffee_app:index' %}" /> </form>
                 <!-- fix -->
     			</div>
