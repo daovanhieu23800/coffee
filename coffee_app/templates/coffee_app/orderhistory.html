@@ -59,7 +59,62 @@
                                 <a href="javascript:void(0)" class="header__nav-item--link promotelink" onclick="showPromotion()">PROMOTION</a>
                              </li>
                         </ul>
-
+                        <label for="nav-mobile-input" class="nav__bars-btn">
+                          <i class="nav__bars-btn--icon fas fa-bars"></i>
+                      </label>
+  
+                      <input type="checkbox" hidden name="" id="nav-mobile-input" class="nav-input">
+  
+                      <label for="nav-mobile-input" class="nav__overlay"> </label>
+                      <div class="nav__mobile">
+                          <label for="nav-mobile-input" class="nav__mobile-close">
+                              <i class="nav__mobile-close--icon fas fa-times"></i>
+                          </label>
+                          <ul class="nav__mobile-list ">
+                              <li class="nav__mobile-item">
+                                  <a href=" {% url 'coffee_app:index' %}" class="nav__mobile-item--link">
+                                      <i class="nav__mobile-icon fas fa-home"></i>
+                                      HOME
+                                  </a>
+                              </li>
+          
+                              <li class="nav__mobile-item">
+                                  <a href="{% url 'coffee_app:index' %}" class="nav__mobile-item--link">
+                                      <i class="nav__mobile-icon fas fa-award"></i>
+                                      STORE
+                                  </a>
+                              </li>
+           
+  
+                              <li class="nav__mobile-item"> 
+                                  <a href="{% url 'coffee_app:news' %} " class="nav__mobile-item--link">
+                                      <i class="nav__mobile-icon fas fa-newspaper"></i>
+                                      NEWS
+                                  </a>
+                              </li>  
+                          
+                              <li class="nav__mobile-item"> 
+                                  <a href="javascript:void(0)" class="nav__mobile-item--link promotelink" onclick="showPromotion()">
+                                      <i class="nav__mobile-icon fas fa-ad"></i>
+                                      PROMOTION
+                                  </a>
+                              </li>  
+                              
+                              <li class="nav__mobile-item"> 
+                                  <a href="{% url 'users:login' %}" class="nav__mobile-item--link">
+                                      <i class="nav__mobile-icon fas fa-user"></i>
+                                      LOGIN
+                                  </a>
+                              </li>  
+                              
+                              <li class="nav__mobile-item"> 
+                                  <a href="{% url 'coffee_app:order' %}" class="nav__mobile-item--link">
+                                      <i class="nav__mobile-icon fas fa-cart-plus"></i>
+                                      ORDER CONFIRMATION
+                                  </a>
+                              </li>  
+                          </ul>
+                      </div>
                     </div>
                     
                     <ul class="header__nav-list">

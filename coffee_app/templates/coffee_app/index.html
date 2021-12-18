@@ -119,7 +119,7 @@
 
                         <ul class="header__nav-list ">
                             <li class="header__nav-item">
-                                <a href=" {% url 'coffee_app:order' %} " class="header__nav-item--link">ORDER</a>
+                                <a href=" {% url 'coffee_app:index' %} " class="header__nav-item--link">HOME</a>
                             </li>
      
                             <li class="header__nav-item">
@@ -161,22 +161,22 @@
                         </label>
                         <ul class="nav__mobile-list ">
                             <li class="nav__mobile-item">
-                                <a href="#" class="nav__mobile-item--link">
+                                <a href=" {% url 'coffee_app:index' %}" class="nav__mobile-item--link">
                                     <i class="nav__mobile-icon fas fa-home"></i>
                                     HOME
                                 </a>
                             </li>
         
                             <li class="nav__mobile-item">
-                                <a href="#order" class="nav__mobile-item--link">
+                                <a href="{% url 'coffee_app:index' %}" class="nav__mobile-item--link">
                                     <i class="nav__mobile-icon fas fa-award"></i>
-                                    ORDER
+                                    STORE
                                 </a>
                             </li>
          
 
                             <li class="nav__mobile-item"> 
-                                <a href="#new" class="nav__mobile-item--link">
+                                <a href="{% url 'coffee_app:news' %} " class="nav__mobile-item--link">
                                     <i class="nav__mobile-icon fas fa-newspaper"></i>
                                     NEWS
                                 </a>

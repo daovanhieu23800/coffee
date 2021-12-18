@@ -21,5 +21,6 @@ urlpatterns = [
     path('remove_item/', views.removeItem, name='remove_item'),
     path('update_promotion/', views.update_promotion, name='update_promotion'),
     path('process_order/', views.processOrder, name='process_order'),
+    path('store/', views.store, name='store'),
 
 ]

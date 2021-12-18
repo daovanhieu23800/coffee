@@ -192,3 +192,9 @@ def get_promotion(request):
 
     data = json.dumps(items_list)
     return HttpResponse(data, content_type="application/json")
+
+def store(request):
+    """The home page """
+    items = Item.objects.all()
+    context = {'items':items}
+    return render(request, 'coffee_app/store.html',context)

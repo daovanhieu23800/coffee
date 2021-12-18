@@ -120,7 +120,7 @@ const  handleNews = async ()=>{
     const myJson = await response.json();
     let newJson = [];
     if(myJson.length>6)
-        newJson = myJson.slice(0,6);
+        newJson = myJson.slice(0,3);
     const html = newJson.map((items) =>{
         // console.log(items);
     return `
@@ -238,7 +238,7 @@ const increaseQuantity = (a)=>{
 const handlesize = (size, price) =>{
     let addbutton = document.querySelector("#totalPrice");
     let quantity = document.querySelector("#quantityofitem");
-    addbutton.innerText = "$" + (price+size) * parseInt(quantity.innerText) ;
+    addbutton.innerText =   (price+size) * parseInt(quantity.innerText)+ "VND" ;
 }
 
 const cancelCardPopup = () =>{
@@ -267,7 +267,7 @@ const openCardPopup = (id, name, description, price,image) =>{
                 </div>
             </div>
             <div class="card_popup-quantity">
-                <span class="price">$${price}</span>
+                <span class="price">${price}VND</span>
                 <div class="change_quantity">
                     <button class="decrease disabled_button" onclick="decreaseQuantity(this)" disabled>-</button>
                     <!-- <span contenteditable="true">0</span> -->
@@ -301,7 +301,7 @@ const openCardPopup = (id, name, description, price,image) =>{
             </div>
            
             <button data-action="add" onclick="addtocard('${id}', '${name}',${price})" class="addtocard">
-                <span id="totalPrice">$ ${price}  </span>
+                <span id="totalPrice"> ${price} VND </span>
             </button>
             
 
