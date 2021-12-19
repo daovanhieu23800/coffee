@@ -17,7 +17,7 @@ const  handleMenuTab1 = async ()=>{
                                         <b>${items.name}</b></span>
                                     
                                     <div class="product-card--footer">
-                                        <span>${items.price}</span>
+                                        <span>${items.price}d</span>
                                         <div class="product-card--button" onclick="openCardPopup('${items.id}', '${items.name}', '${items.description}','${items.price}', '${items.image}')">
                                             <i class="fas fa-plus" ></i>
                                         </div>
