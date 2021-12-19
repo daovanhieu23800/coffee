@@ -118,9 +118,10 @@
     position: absolute;
     background-color: white;
     width: 150px;
-    height: 100 px;
+    height: 100px;
     right: 6vw;
     bottom:-70px;
+    padding :5px;
     border-radius: var(--border-radius);
     box-shadow: 0px 10px 20px rgba(0, 0, 0 , 0.1) ;
     display: none;
@@ -321,11 +322,16 @@
     width: 100%;
     border-radius: 8px 8px 0 0 ;
 }
+.news-content{
+    margin: 5px;
+    
+}
 .news-content p{
     display: inline-block;
     height: 50px;
     overflow: hidden;
 }
+
 .news-content h5{
     display: inline-block;
     height: 30px;
