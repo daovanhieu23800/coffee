@@ -15,7 +15,7 @@ const  handleNews = async ()=>{
                             <p>${items.content}</p>
                             <div class="more-button">
                                 <button>
-                                    <a href="http://127.0.0.1:8000/newsdetail/${items.id}">More</a>
+                                    <a href="/newsdetail/${items.id}">More</a>
                                 </button>
                             </div>
                         </div>
