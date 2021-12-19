@@ -53,6 +53,11 @@
                              <li class="header__nav-item">
                                 <a href="javascript:void(0)" class="header__nav-item--link promotelink" onclick="showPromotion()">PROMOTION</a>
                              </li>
+                             {%if user.is_superuser%}
+                             <li class="header__nav-item">
+                                <a href="{% url 'admin:index' %}" class="header__nav-item--link">ADMIN</a>
+                             </li>
+                             {%endif%}
                         </ul>
 
                     </div>
@@ -84,12 +89,7 @@
                                 </a>
                             </li>
         
-                            <li class="nav__mobile-item">
-                                <a href="{% url 'coffee_app:index' %}" class="nav__mobile-item--link">
-                                    <i class="nav__mobile-icon fas fa-award"></i>
-                                    STORE
-                                </a>
-                            </li>
+                           
          
 
                             <li class="nav__mobile-item"> 
@@ -105,7 +105,8 @@
                                     PROMOTION
                                 </a>
                             </li>  
-                            
+                           
+
                             <li class="nav__mobile-item"> 
                                 <a href="{% url 'users:login' %}" class="nav__mobile-item--link">
                                     <i class="nav__mobile-icon fas fa-user"></i>
