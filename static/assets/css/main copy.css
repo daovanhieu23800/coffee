@@ -118,7 +118,7 @@
     position: absolute;
     background-color: white;
     width: 150px;
-    height: 80px;
+    height: 100px;
     right: 6vw;
     bottom:-70px;
     border-radius: var(--border-radius);

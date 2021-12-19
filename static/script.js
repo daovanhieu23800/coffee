@@ -199,7 +199,7 @@ const decreaseQuantity = (a)=>{
     if(size ==  "L")
         plus = 10000;
 
-    price = parseFloat(document.querySelector(".price").innerText.slice(1,));
+    price = parseFloat(document.querySelector(".price").innerText.slice(0,));
     console.log(plus, " ", price);
     handlesize(plus,price);
 }
@@ -217,7 +217,7 @@ const increaseQuantity = (a)=>{
      for (var i = 0; i < radios.length; i++) {       
          if (radios[i].checked) {
              size = radios[i].value;
-         found = 0;
+            found = 0;
              break;
          }
      }
@@ -228,7 +228,7 @@ const increaseQuantity = (a)=>{
      if(size == "L")
         plus = 10000;
 
-     price = parseFloat(document.querySelector(".price").innerText.slice(1,));
+     price = parseFloat(document.querySelector(".price").innerText.slice(0,));
      console.log(plus, " ", price);
      handlesize(plus,price);
     
