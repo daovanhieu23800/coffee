@@ -244,9 +244,11 @@
     flex-wrap:wrap;
     justify-content: center;
 }
-.product-card--info{
-    width: 155px;
-    margin-top: 5px;
+.product-card--info > span{
+    display:inline-block;
+    margin: 5px;
+    height: 45px;
+    overflow-y: visible;
 }
 .product-card{
     box-shadow: 0px 10px 20px rgba(0, 0, 0 , 0.1);
@@ -319,8 +321,15 @@
     width: 100%;
     border-radius: 8px 8px 0 0 ;
 }
-.news-content{
-    padding: 10px 16px 10px 16px;
+.news-content p{
+    display: inline-block;
+    height: 50px;
+    overflow: hidden;
+}
+.news-content h5{
+    display: inline-block;
+    height: 30px;
+    overflow: visible;
 }
 
 /* newsdetail */
@@ -675,6 +684,8 @@
     text-align: center;
     font-size: 20px;
     margin: 10px;
+    border: none;
+    float: right;
 }
 
 .disabled_button{
