@@ -121,9 +121,6 @@
                            <li class="header__nav-item">
                                 <a href=" {% url 'coffee_app:index' %} " class="header__nav-item--link">HOME</a>
                             </li>
-                            <li class="header__nav-item">
-                                <a href=" {% url 'coffee_app:store' %} " class="header__nav-item--link">STORE</a>
-                            </li>
                             
                             <li class="header__nav-item"> 
                                 <a href=" {% url 'coffee_app:news' %}  " class="header__nav-item--link">NEWS</a>
@@ -165,12 +162,7 @@
                                     HOME
                                 </a>
                             </li>
-                            <li class="nav__mobile-item">
-                                <a href=" {% url 'coffee_app:store' %}" class="nav__mobile-item--link">
-                                    <i class="nav__mobile-icon fas fa-home"></i>
-                                    STORE
-                                </a>
-                            </li>
+        
                          
 
                             <li class="nav__mobile-item"> 
@@ -237,97 +229,7 @@
         </header>
         
         <div class="body">
-            <div class="promotion">
-                <div class="promotion-container">
-                <div
-                id="carouselBasicExample"
-                class="carousel slide carousel-fade"
-                data-mdb-ride="carousel"
-                >
-                <!-- Indicators -->
-                    <div class="carousel-indicators promotion-indicator">
-                        <button
-                            type="button"
-                            data-mdb-target="#carouselBasicExample"
-                            data-mdb-slide-to="0"
-                            class="active"
-                            aria-current="true"
-                            aria-label="Slide 1"
-                        ></button>
-                        <button
-                            type="button"
-                            data-mdb-target="#carouselBasicExample"
-                            data-mdb-slide-to="1"
-                            aria-label="Slide 2"
-                        ></button>
-                        <button
-                            type="button"
-                            data-mdb-target="#carouselBasicExample"
-                            data-mdb-slide-to="2"
-                            aria-label="Slide 3"
-                        ></button>
-                    </div>
-
-                    <!-- Inner -->
-                    <div class="carousel-inner">
-                <!-- Single item -->
-                    <div class="carousel-item promotion-carousel--item active">
-                        <img
-                        src=" {% static './assets/images/promotion1.jpg' %} "
-                        class="d-block w-100 promotion-image"
-                        alt="..."
-                        />
-                        
-                    </div>
-
-                <!-- Single item -->
-                    <div class="carousel-item promotion-carousel--item">
-                        <img
-                        src=" {% static './assets/images/promotion2.jpg' %} "
-                        class="d-block w-100 promotion-image"
-                        alt="..."
-                        />
-                        
-                    </div>
-
-                <!-- Single item -->
-                    <div class="carousel-item promotion-carousel--item">
-                        <img
-                        src=" {% static './assets/images/promotion3.jpg' %} "
-                        class="d-block w-100 promotion-image"
-                        
-                        alt="..."
-                        />
-                        
-                    </div>
-                    </div>
-                <!-- Inner -->
-
-                <!-- Controls -->
-                        <button
-                        class="carousel-control-prev"
-                        type="button"
-                        data-mdb-target="#carouselBasicExample"
-                        data-mdb-slide="prev"
-                        >
-                        <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
-                        <i class="fas fa-chevron-left"></i>
-                        <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button
-                        class="carousel-control-next"
-                        type="button"
-                        data-mdb-target="#carouselBasicExample"
-                        data-mdb-slide="next"
-                        >
-                        <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
-                        <i class="fas fa-chevron-right"></i>
-                        <span class="visually-hidden">Next</span>
-                        </button>
-                        </div>
-                <!-- Carousel wrapper -->
-            </div>
-        </div>
+            
 
             <div id ="order" class="product">
                 <div class="container">
@@ -416,46 +318,10 @@
                     </div>
                     
                 </div>
-                <div class="read-all">
-                    <a href="{% url 'coffee_app:store' %}">
-                        <span>Read all</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>    
+                  
             </div>
                 
-            <div id="news" class="news">
-                <div class="container">
-                    <div class="product__heading">
-                        <i class="product__heading-icon fas fa-newspaper"></i>
-                        <span >News</span>
-                    </div>
-                
-                <div class="news-container">
-                    <!-- ------------------------- -->
-                    <div class="news-card">
-                        <img src=" {% static './assets/images/news1.jpg' %} " alt="news1">
-                        <div class="news-content">
-                            <h5>Title</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse pretium ex ac urna tempor, ac ultrices justo aliquet. Aenean viverra urna eu est tincidunt venenatis. </p>
-                            <div class="more-button">
-                                <button>
-                                    <a href="#">More</a>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- -------------------------- -->
-                </div>   
-                <div class="read-all">
-                    <a href="{% url 'coffee_app:news' %}">
-                        <span>Read all</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>    
-                </div>        
             
-            </div>
         </div>
         <footer class="footer">
             <div class="footer__content">

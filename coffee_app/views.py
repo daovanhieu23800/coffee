@@ -195,6 +195,4 @@ def get_promotion(request):
 
 def store(request):
     """The home page """
-    items = Item.objects.all()
-    context = {'items':items}
-    return render(request, 'coffee_app/store.html',context)
+    return render(request, 'coffee_app/store.html')
